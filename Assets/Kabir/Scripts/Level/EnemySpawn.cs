@@ -18,7 +18,7 @@ public class EnemySpawn : MonoBehaviour
 
     public void Spawn()
     {
-        groundSize = (float)(floorSize * 0.3);
+        groundSize = floorSize / 2;
         for (int i = 0; i < numberOfEnemies; i++)
         {
             

@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject enemyPrefab;
     //public Vector3[] enemyPositions;
     public int numberOfEnemies;
+    public int prefabSize;
     public int enemySize;
     public GameObject prefab;
 
@@ -24,7 +25,7 @@ public class LevelGenerator : MonoBehaviour
         WallSpawn wallSpawn = new WallSpawn(floorSize, wallPrefab);
         wallSpawn.Spawn();
 
-        PrefabSpawn prefabSpawn = new PrefabSpawn(prefab);
+        PrefabSpawn prefabSpawn = new PrefabSpawn(prefab, prefabSize, floorSize);
         prefabSpawn.Spawn();
 
         EnemySpawn enemySpawn = new EnemySpawn(enemyPrefab, enemySize, numberOfEnemies, floorSize);
