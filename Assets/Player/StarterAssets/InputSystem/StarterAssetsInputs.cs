@@ -12,6 +12,8 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool interact;
+		public bool drop;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -60,13 +62,19 @@ namespace StarterAssets
 		public void OnInteract(InputValue value)
         {
 
+			InterectInput(value.isPressed);
 			//For farhina Apu, just use the interact function here
 			Debug.Log("Interect");
 
         }
 
+		
+		public void OnDrop(InputValue value)
+        {
 
-
+			DropInput(value.isPressed);
+			Debug.Log("Dropped");
+        }
 #endif
 
 
@@ -90,6 +98,19 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 		
+		public void InterectInput(bool newInterectState)
+        {
+			interact = newInterectState;
+        }
+
+		public void DropInput(bool newDropState)
+        {
+			drop = newDropState;
+        }
+
+
+
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);

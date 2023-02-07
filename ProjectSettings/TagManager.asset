@@ -16,6 +16,7 @@ TagManager:
   - Wood (Static)
   - Dirt (Static)
   - Wood
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
@@ -33,8 +34,8 @@ TagManager:
   - Post Processing Scope
   - Invisible Wall
   - Projectile
-  - 
-  - 
+  - Weapon
+  - Weapon Graphics
   - 
   - 
   - 
