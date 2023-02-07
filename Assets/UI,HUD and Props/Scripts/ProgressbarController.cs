@@ -12,27 +12,28 @@ public class ProgressbarController : MonoBehaviour
     public TMP_Text displayText;
     public Slider slider;
 
-  
-    public float changeTime = 5f;
+    public AudioSource audioSource;
+    float songLength = 0f;
     float elapsedTime = 0f;
 
     void Start()
     {
-       
+        songLength = audioSource.clip.length;
+        slider.maxValue = songLength;
         slider.onValueChanged.AddListener((value) =>
         {
-            displayText.text = value.ToString("0.00");
+            displayText.text = value.ToString("00.00");
         });
     }
 
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        if (elapsedTime >= changeTime)
+        if (elapsedTime >= songLength)
         {
-            elapsedTime = changeTime;
+            elapsedTime = songLength;
         }
-        slider.value = Mathf.Lerp(0, 20, elapsedTime / changeTime);
+        slider.value = Mathf.Lerp(0, 30, elapsedTime / songLength);
     }
 
 
