@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
 
     public int WeaponGraphicsLayer;
-    public GameObject WeaponGraphics;
+    public GameObject[] WeaponGraphics;
     public Collider[] GraphicsColliders;
 
     private bool weaponEquipped;
@@ -43,7 +43,12 @@ public class Weapon : MonoBehaviour
             collider.enabled = false;
         }
 
-      
+        foreach (var gfx in WeaponGraphics)
+        {
+            gfx.layer = WeaponGraphicsLayer;
+        }
+
+
         weaponEquipped = true;
 
         
@@ -72,6 +77,11 @@ public class Weapon : MonoBehaviour
         {
             collider.enabled = true;
         }
+        foreach (var gfx in WeaponGraphics)
+        {
+            gfx.layer = 0;
+        }
+
     }
 
 
