@@ -1,6 +1,6 @@
 # GameJam Alpha SP
 Description: 
-John Quick : A fast-paced FPS game set in rooms where the you elevate after completion of each level.   
+John Quick : A fast-paced FPS game set in office rooms where you elevate each floor after completion of each level.   
 Game Assets:
 
 
