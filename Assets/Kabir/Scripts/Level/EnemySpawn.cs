@@ -12,7 +12,7 @@ public class EnemySpawn : MonoBehaviour
     };
     public float spawnInterval = 5f;
     private int spawnCount = 0;
-    private int maxSpawnCount = 3;
+    public int maxSpawnCount = 3;
 
 
 
