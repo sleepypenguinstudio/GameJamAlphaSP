@@ -8,10 +8,22 @@ public class SongLength : MonoBehaviour
 {
     public AudioClip song;
 
+    private AudioSource audioSource;
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
-        float songLength = song.length;
-        Debug.Log("Song length: " + songLength + " seconds");
+        audioSource.clip = song;
+        audioSource.volume= 1;
+        audioSource.Play();
+        Debug.Log("aschi");
+    }
+    private void Update()
+    {
+        Debug.Log(audioSource.isPlaying);
     }
 }
 
