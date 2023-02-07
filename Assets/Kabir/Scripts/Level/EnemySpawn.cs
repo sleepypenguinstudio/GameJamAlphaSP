@@ -21,13 +21,8 @@ public class EnemySpawn : MonoBehaviour
 
     private void Start()
     {
-        GameObject[] enemySpawnPossibilities = GameObject.FindGameObjectsWithTag("enemySpawnPossibility");
-        enemyPositions = new Vector3[enemySpawnPossibilities.Length];
-        for (int i = 0; i < enemySpawnPossibilities.Length; i++)
-        {
-            enemyPositions[i] = enemySpawnPossibilities[i].transform.position;
-        }
-        Spawn();
+        StartCoroutine(SpawnEnemies());
+
     }
     public void Spawn()
     {
@@ -44,6 +39,12 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
+        GameObject[] enemySpawnPossibilities = GameObject.FindGameObjectsWithTag("enemySpawnPossibility");
+        enemyPositions = new Vector3[enemySpawnPossibilities.Length];
+        for (int i = 0; i < enemySpawnPossibilities.Length; i++)
+        {
+            enemyPositions[i] = enemySpawnPossibilities[i].transform.position;
+        }
         while (true)
         {
             Spawn();
