@@ -24,8 +24,8 @@ public class PrefabSpawn : MonoBehaviour
         int prefabsCount = prefabPositions.Length;
         for (int i = 0; i < prefabsCount; i++)
         {
-            int randomEnemyIndex = Random.Range(0, prefabs.Length);
-            Instantiate(prefabs[randomEnemyIndex], prefabPositions[i], Quaternion.identity);
+            int randomPrefabIndex = Random.Range(0, prefabs.Length);
+            Instantiate(prefabs[randomPrefabIndex], prefabPositions[i], Quaternion.identity);
         }
     }
 }
