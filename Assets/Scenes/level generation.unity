@@ -227,6 +227,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1306487864}
   - component: {fileID: 1306487863}
+  - component: {fileID: 1306487865}
+  - component: {fileID: 1306487866}
   m_Layer: 0
   m_Name: LevelGenerator
   m_TagString: Untagged
@@ -246,14 +248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ff1ad89a351eb4f91e6b75e3f2bc12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorSize: 10
+  floorSize: 100
   floorPrefab: {fileID: 4156867714664462135, guid: 65438d054a243453690cc5a55e7034a7, type: 3}
   wallPrefab: {fileID: 7166259239455210438, guid: e125ee33af41143b8becc869e2706998, type: 3}
-  enemyPrefab: {fileID: 3125919938299543807, guid: 06b5c058b87339541a56cdd22b4e8670, type: 3}
-  numberOfEnemies: 5
-  prefabSize: 11
-  enemySize: 10
-  prefab: {fileID: 3200898766959751341, guid: 223c3537591534e049ea27729f725c99, type: 3}
+  levelSongs: []
 --- !u!4 &1306487864
 Transform:
   m_ObjectHideFlags: 0
@@ -269,6 +267,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306487865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306487862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134d8cb300acf7145b680aace3900215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 1617981183716710357, guid: 4b9b4dd6b7633d44c9d2f1275fd92055, type: 3}
+  - {fileID: 241646886338377760, guid: 70b0d7633fc22d1419fe332a014ce87e, type: 3}
+  - {fileID: 126130302089793275, guid: 94025afe18059204e901d3bec7d70224, type: 3}
+  - {fileID: 8979536952676561975, guid: 0d79204046abd4c49b61c1bd053f8c61, type: 3}
+  - {fileID: 3125919938299543807, guid: 06b5c058b87339541a56cdd22b4e8670, type: 3}
+  spawnInterval: 3
+  maxSpawnCount: 3
+--- !u!114 &1306487866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306487862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5da4996791eed48be031e843c9fa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 8900838258180151802, guid: 5a31141e6696d45ab926369601cca605, type: 3}
+  - {fileID: 3939849767475321638, guid: 9b7976d86d126403b9493d55c4fea382, type: 3}
 --- !u!1 &1783618914
 GameObject:
   m_ObjectHideFlags: 0

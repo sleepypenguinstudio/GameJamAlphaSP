@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    public int currentLevel = 0;
     public int floorSize = 10;
     public GameObject floorPrefab;
     public GameObject wallPrefab;
-
+    public AudioClip[] levelSongs;
 
 
 
@@ -28,5 +29,9 @@ public class LevelGenerator : MonoBehaviour
 
         //EnemySpawn enemySpawn = new EnemySpawn(enemyPrefabs, enemyPositions, spawnInterval);
         //enemySpawn.Spawn();
+
+        MusicPlayer musicPlayer = new MusicPlayer();
+        musicPlayer.PlaySongForLevel(currentLevel);
+        currentLevel++;
     }
 }
