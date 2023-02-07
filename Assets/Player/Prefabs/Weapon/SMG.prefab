@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9025041696350865836}
-  m_Layer: 0
+  - component: {fileID: 894090617}
+  m_Layer: 16
   m_Name: SMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +33,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &894090617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816296499602210582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cb19be75885e24bafa9df1c3683b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThrowForce: 5
+  ThrowExtraForce: 11
+  RotationForce: 120
+  WeaponGraphicsLayer: 17
+  WeaponGraphics:
+  - {fileID: 498537907333657929}
+  GraphicsColliders:
+  - {fileID: 369824408}
+  starterAssetsInputs: {fileID: 0}
+  MaxAmmo: 30
+  ShotsPerSecond: 20
+  ReloadSpeed: 1.25
+  HitForce: 3.5
+  Range: 20
+  Tappable: 0
 --- !u!1001 &732468551238895640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,6 +149,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cf10fa706c7a4d42b5927d8e730f4e2, type: 3}
+--- !u!1 &498537907333657929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2cf10fa706c7a4d42b5927d8e730f4e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 732468551238895640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &369824408
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498537907333657929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5009023928823820679, guid: 2cf10fa706c7a4d42b5927d8e730f4e2, type: 3}
 --- !u!4 &982058743099305971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2cf10fa706c7a4d42b5927d8e730f4e2,
