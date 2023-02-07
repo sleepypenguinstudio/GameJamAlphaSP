@@ -1,34 +1,31 @@
-﻿using UnityEngine;
-public class PrefabSpawn: MonoBehaviour
+﻿using System.Collections;
+using UnityEngine;
+public class PrefabSpawn : MonoBehaviour
 {
-    public GameObject prefab;
-    public float spawnRadius;
-    private float groundSize;
-    private float floorSize;
-    private int prefabSize;
+    public GameObject[] prefabs;
+    Vector3[] prefabPositions = new Vector3[] {
+    new Vector3(50, 0, 30),
+    new Vector3(-70, 0, 23),
+    new Vector3(-67, 0, -42),
+    new Vector3(20, 0, -52),
+    new Vector3(-73, 0, 41)
+    };
 
-    public PrefabSpawn(GameObject prefab, int prefabSize, int floorSize)
+
+
+
+    private void Start()
     {
-        this.prefab = prefab;
-        this.floorSize = floorSize;
-        this.prefabSize = prefabSize;
+        Spawn();
     }
 
     public void Spawn()
     {
-        groundSize = floorSize / 2;
-        for (int i = 0; i < 10; i++)
+        int prefabsCount = prefabPositions.Length;
+        for (int i = 0; i < prefabsCount; i++)
         {
-
-            float randomX = Random.Range(-prefabSize, prefabSize);
-            float randomZ = Random.Range(-prefabSize, prefabSize);
-
-            Vector3 prefabPosition = new Vector3(randomX, 0f, randomZ);
-            Instantiate(prefab, prefabPosition, Quaternion.identity);
-            if (Mathf.Abs(prefabPosition.x) <= groundSize && Mathf.Abs(prefabPosition.z) <= groundSize)
-            {
-                Instantiate(prefab, prefabPosition, Quaternion.identity);
-            }
+            int randomEnemyIndex = Random.Range(0, prefabs.Length);
+            Instantiate(prefabs[randomEnemyIndex], prefabPositions[i], Quaternion.identity);
         }
     }
 }
