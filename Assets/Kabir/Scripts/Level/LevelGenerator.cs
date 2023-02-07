@@ -18,11 +18,11 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateLevel()
     {
-        FloorSpawn floorSpawn = new FloorSpawn(floorSize, floorPrefab);
-        floorSpawn.Spawn();
+        //FloorSpawn floorSpawn = new FloorSpawn(floorSize, floorPrefab);
+        //floorSpawn.Spawn();
 
-        WallSpawn wallSpawn = new WallSpawn(floorSize, wallPrefab);
-        wallSpawn.Spawn();
+        //WallSpawn wallSpawn = new WallSpawn(floorSize, wallPrefab);
+        //wallSpawn.Spawn();
 
         //PrefabSpawn prefabSpawn = new PrefabSpawn(prefab, prefabSize, floorSize, numberOfPrefabs);
         //prefabSpawn.Spawn();
@@ -30,8 +30,8 @@ public class LevelGenerator : MonoBehaviour
         //EnemySpawn enemySpawn = new EnemySpawn(enemyPrefabs, enemyPositions, spawnInterval);
         //enemySpawn.Spawn();
 
-        MusicPlayer musicPlayer = new MusicPlayer();
-        musicPlayer.PlaySongForLevel(currentLevel);
+        //MusicPlayer musicPlayer = new MusicPlayer();
+        //musicPlayer.PlaySongForLevel(currentLevel);
         currentLevel++;
     }
 }
