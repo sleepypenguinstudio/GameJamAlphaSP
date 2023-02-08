@@ -7,6 +7,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         // Fill the playerSpawnPoints array with the positions of the player spawn points
         GameObject[] playerSpawnPointObjects = GameObject.FindGameObjectsWithTag("playerSpawnPossibility");
         playerSpawnPoints = new Vector3[playerSpawnPointObjects.Length];

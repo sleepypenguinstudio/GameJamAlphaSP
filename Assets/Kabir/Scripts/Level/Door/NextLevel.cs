@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using StarterAssets;
 public class NextLevel : MonoBehaviour
 {
 
 
     [SerializeField] private int sceneToLoad;
+    //tarterAssetsInputs starterAssetsInputs;
+
+    
     private void OnTriggerStay(Collider other)
     {
-        
+        //starterAssetsInputs = other.GetComponent<StarterAssetsInputs>();
+        if(Input.GetKeyDown(KeyCode.E)){
+            
+            ChangeLevel();
+
+        }
       
 
         
@@ -33,12 +41,6 @@ public class NextLevel : MonoBehaviour
             SceneManager.LoadScene(sceneToLoad);
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ChangeLevel();
-        }
-    }
+   
 
 }
