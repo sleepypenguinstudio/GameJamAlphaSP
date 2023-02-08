@@ -15,6 +15,7 @@ public class JumboEnemy : EnemyClass
     private void Awake() {
          agent = GetComponent<NavMeshAgent>();
         UpdateDestination();
+        //Call Shoot function
     }
     
     protected override void Chase(Transform player)
