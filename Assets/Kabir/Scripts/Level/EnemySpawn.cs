@@ -45,9 +45,10 @@ public class EnemySpawn : MonoBehaviour
         {
             enemyPositions[i] = enemySpawnPossibilities[i].transform.position;
         }
-        while (true)
+        while (spawnCount < maxSpawnCount)
         {
             Spawn();
+            spawnCount++;
             yield return new WaitForSeconds(spawnInterval);
         }
     }

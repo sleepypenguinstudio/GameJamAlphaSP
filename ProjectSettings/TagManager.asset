@@ -18,6 +18,11 @@ TagManager:
   - Wood
   - CinemachineTarget
   - Enemy
+  - enemySpawnPossibility
+  - prefabSpawnPossibility
+  - Fluid
+  - playerSpawnPossibility
+  - exitSpawnPossibility
   layers:
   - Default
   - TransparentFX
