@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using TMPro;
 public class WeaponManager : MonoBehaviour
 {
 
     public float PickUpRange;
     public float PickUpRadius;
 
+    public float SwaySize;
+    public float SwaySmooth;
+
     public int WeaponLayer;
     public Transform WeaponHolder;
     public Transform PlayerCamera;
+    public Transform SwayHolder;
+    public TMP_Text AmmoText;
+
 
     private bool isWeaponEquipped;
     private Weapon equippedWeapon;
@@ -25,6 +32,8 @@ public class WeaponManager : MonoBehaviour
     {
         if (isWeaponEquipped)
         {
+            SwaySystem();          
+
             if (starterAssetsInputs.drop)
             {
                 starterAssetsInputs.drop = false;
@@ -77,7 +86,7 @@ public class WeaponManager : MonoBehaviour
             });
             isWeaponEquipped = true;
             equippedWeapon = realList[0].transform.GetComponent<Weapon>();
-            equippedWeapon.PickUp(WeaponHolder,PlayerCamera);
+            equippedWeapon.PickUp(WeaponHolder,PlayerCamera,AmmoText);
 
 
 
@@ -96,7 +105,12 @@ public class WeaponManager : MonoBehaviour
     }
 
 
-
+    private void SwaySystem()
+    {
+        var mouseDelta = -starterAssetsInputs.look;
+        SwayHolder.localPosition = Vector3.Lerp(SwayHolder.localPosition, Vector3.zero, SwaySmooth * Time.deltaTime);
+        SwayHolder.localPosition += (Vector3)mouseDelta * SwaySize;
+    }
 
 
 

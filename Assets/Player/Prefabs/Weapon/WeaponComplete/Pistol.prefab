@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5662206636860784192
+--- !u!1 &7531709953726959546
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7813122520897590316}
-  - component: {fileID: 791279310}
+  - component: {fileID: 5368283243549156822}
+  - component: {fileID: 2743308602796181300}
   m_Layer: 16
   m_Name: Pistol
   m_TagString: Untagged
@@ -17,29 +17,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7813122520897590316
+--- !u!4 &5368283243549156822
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5662206636860784192}
-  m_LocalRotation: {x: 0.020166025, y: -0, z: -0, w: -0.9997966}
+  m_GameObject: {fileID: 7531709953726959546}
+  m_LocalRotation: {x: 0.020162594, y: -0, z: -0, w: -0.9997967}
   m_LocalPosition: {x: 0, y: 1.086, z: 0.934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1264860261999535818}
+  - {fileID: 4008097116582057776}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 357.689, y: 0, z: 0}
---- !u!114 &791279310
+--- !u!114 &2743308602796181300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5662206636860784192}
+  m_GameObject: {fileID: 7531709953726959546}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56cb19be75885e24bafa9df1c3683b2c, type: 3}
@@ -50,26 +50,27 @@ MonoBehaviour:
   RotationForce: 120
   WeaponGraphicsLayer: 17
   WeaponGraphics:
-  - {fileID: 1929369233381997680}
+  - {fileID: 4383216005700406666}
   GraphicsColliders:
-  - {fileID: 2011106056}
+  - {fileID: 2743308603451931378}
   starterAssetsInputs: {fileID: 0}
   AnimTime: 0.3
-  MaxAmmo: 15
-  MaxClip: 0
-  ShotsPerSecond: 5
-  ReloadSpeed: 0.95
-  HitForce: 2.5
-  Range: 40
-  Tappable: 1
-  RecoilForce: 0.2
-  RecoilSmooth: 11.75
---- !u!1001 &1587262448635740449
+  maxAmmo: 15
+  maxClip: 0
+  shotsPerSecond: 5
+  reloadSpeed: 0.95
+  hitForce: 2.5
+  range: 40
+  tappable: 1
+  recoilForce: 0.2
+  recoilSmooth: 11.75
+  damageValue: 0
+--- !u!1001 &3464717725133795547
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7813122520897590316}
+    m_TransformParent: {fileID: 5368283243549156822}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 726e329e1719c8f42949342e6a5b42e3,
         type: 3}
@@ -153,25 +154,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 726e329e1719c8f42949342e6a5b42e3, type: 3}
---- !u!4 &1264860261999535818 stripped
+--- !u!4 &4008097116582057776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 726e329e1719c8f42949342e6a5b42e3,
     type: 3}
-  m_PrefabInstance: {fileID: 1587262448635740449}
+  m_PrefabInstance: {fileID: 3464717725133795547}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1929369233381997680 stripped
+--- !u!1 &4383216005700406666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 726e329e1719c8f42949342e6a5b42e3,
     type: 3}
-  m_PrefabInstance: {fileID: 1587262448635740449}
+  m_PrefabInstance: {fileID: 3464717725133795547}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2011106056
+--- !u!64 &2743308603451931378
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929369233381997680}
+  m_GameObject: {fileID: 4383216005700406666}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

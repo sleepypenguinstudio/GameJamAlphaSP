@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using TMPro;
 public class Weapon : MonoBehaviour
 {
     [Header("Force related to Weapon Drop")]
@@ -18,16 +19,24 @@ public class Weapon : MonoBehaviour
     public GameObject[] WeaponGraphics;
     public Collider[] GraphicsColliders;
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
+    public float AnimTime;
 
 
 
     [Header("Weapon Properties")]
-    public int MaxAmmo;
-    public int ShotsPerSecond;
-    public float ReloadSpeed;
-    public float HitForce;
-    public float Range;
-    public bool Tappable;
+    [SerializeField] int maxAmmo;
+    [SerializeField] int maxClip;
+    [SerializeField] int shotsPerSecond;
+    [SerializeField] float reloadSpeed;
+    [SerializeField] float hitForce;
+    [SerializeField] float range;
+    [SerializeField] bool tappable;
+    [SerializeField] float recoilForce;
+    [SerializeField] float recoilSmooth;
+    [SerializeField] float damageValue;
+
+
+
 
     private bool weaponEquipped;
     private Rigidbody _rigidBody;
@@ -35,12 +44,21 @@ public class Weapon : MonoBehaviour
     private bool shooting;
     private int ammo;
     private Transform playerCamera;
+    private TMP_Text ammoText;
+
+    private Vector3 startPosition;
+    private Quaternion startRotation;
+
+
+    private float rotationTime;
+    private float time;
 
     private void Start()
     {
         _rigidBody = gameObject.AddComponent<Rigidbody>();
         _rigidBody.mass = 0.1f;
-        ammo = MaxAmmo;
+
+        ammo = maxAmmo;
     }
 
 
@@ -49,38 +67,55 @@ public class Weapon : MonoBehaviour
     {
         if (!weaponEquipped) { return; }
 
-        if (starterAssetsInputs.reload && !reloading && ammo<MaxAmmo)
+
+
+        if (time < AnimTime)
+        {
+            time += Time.deltaTime;
+            time = Mathf.Clamp(time,0f,AnimTime);
+            var delta = -(Mathf.Cos(Mathf.PI * (time / AnimTime)) - 1f) / 2f;
+            transform.localPosition = Vector3.Lerp(startPosition,Vector3.zero,delta);
+            transform.localRotation = Quaternion.Lerp(startRotation,Quaternion.identity,delta);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.identity;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, recoilSmooth* Time.deltaTime);
+        }
+
+
+        if (reloading)
+        {
+            ReloadAnimation();
+        }
+
+        if (starterAssetsInputs.reload && !reloading && ammo<maxAmmo)
         {
             starterAssetsInputs.reload = false;
             StartCoroutine(ReloadingCoolDown());
         }
 
-        if((Tappable?Input.GetMouseButtonDown(0):Input.GetMouseButton(0))&& !shooting && !reloading)
+        if((tappable?Input.GetMouseButtonDown(0):Input.GetMouseButton(0))&& !shooting && !reloading && ammo>0)
         {
 
             ammo--;
+            ammoText.text = ammo + "/" + maxAmmo;
             Shoot();
             StartCoroutine(ammo<=0? ReloadingCoolDown():ShootingCoolDown());
-
-             
-
-
+            
         }
-
-
-
-
-
-
     }
 
 
 
 
-
+    #region ShootMechanics
     private void Shoot()
     {
-        if(!Physics.Raycast(playerCamera.position,playerCamera.forward,out var hitInfo, Range))
+        transform.localPosition -= new Vector3(0, 0, recoilForce);
+
+
+        if(!Physics.Raycast(playerCamera.position,playerCamera.forward,out var hitInfo, range))
         {
             return;
         }
@@ -90,7 +125,7 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
-        rigidBody.velocity += playerCamera.forward * HitForce;
+        rigidBody.velocity += playerCamera.forward * hitForce;
     }
 
     private IEnumerator ShootingCoolDown()
@@ -98,42 +133,39 @@ public class Weapon : MonoBehaviour
         shooting = true;
 
 
-        yield return new WaitForSeconds(1f/ShotsPerSecond);
+        yield return new WaitForSeconds(1f/shotsPerSecond);
         shooting = false;
 
 
     }
 
-
-
     private IEnumerator ReloadingCoolDown()
     {
 
         reloading = true;
+        ammoText.text = "Reloading";
+        rotationTime = 0f;
 
-
-        yield return new WaitForSeconds(ReloadSpeed);
-        ammo = MaxAmmo;
+        yield return new WaitForSeconds(reloadSpeed);
+        ammo = maxAmmo;
+        ammoText.text = ammo + "/" + maxAmmo;
 
         reloading = false;
+        starterAssetsInputs.reload = false;
 
     }
 
-    
+    private void ReloadAnimation()
+    {
+        rotationTime += Time.deltaTime;
+        var spinDelta = -(Mathf.Cos(Mathf.PI * (rotationTime / reloadSpeed)) - 1f) / 2f;
+        transform.localRotation = Quaternion.Euler(new Vector3(spinDelta * 360f, 0, 0));
+    }
+    #endregion
 
 
-
-
-
-
-
-
-
-
-
-
-
-    public void PickUp(Transform weaponHolder,Transform _playerCamera)
+    #region PickUp & Drop Mechanics
+    public void PickUp(Transform weaponHolder,Transform _playerCamera, TMP_Text _ammoText)
     {
         if (weaponEquipped)
         {
@@ -157,6 +189,8 @@ public class Weapon : MonoBehaviour
 
         weaponEquipped = true;
         playerCamera = _playerCamera;
+        ammoText = _ammoText;
+        ammoText.text = ammo + "/" + maxAmmo;
 
         
     }
@@ -185,11 +219,16 @@ public class Weapon : MonoBehaviour
         _rigidBody.angularVelocity = Random.onUnitSphere * RotationForce;
 
 
+
+        ammoText.text = "";
+
         transform.parent = null;
         weaponEquipped = false;
        
 
     }
+
+    #endregion
 
 
 }
