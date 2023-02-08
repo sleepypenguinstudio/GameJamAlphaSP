@@ -4,7 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cover
+  - Wall
+  - Metal
+  - Blood
+  - Dirt
+  - Concrete
+  - ExplosiveBarrel
+  - Target
+  - GasTank
+  - Metal (Static)
+  - Wood (Static)
+  - Dirt (Static)
+  - Wood
+  - CinemachineTarget
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,18 +25,18 @@ TagManager:
   - 
   - Water
   - UI
-  - CoverLayer
-  - VisibleLayer
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - First Person View
+  - Character
+  - Post Processing
+  - Post Processing Weapon
+  - Post Processing Scope
+  - Invisible Wall
+  - Projectile
+  - Weapon
+  - Weapon Graphics
   - 
   - 
   - 
