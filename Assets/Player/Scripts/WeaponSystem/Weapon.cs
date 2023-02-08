@@ -57,7 +57,8 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         _rigidBody = gameObject.AddComponent<Rigidbody>();
-        _rigidBody.mass = 0.1f;
+        _rigidBody.mass = 1f;
+        
 
         ammo = maxAmmo;
     }
@@ -122,7 +123,7 @@ public class Weapon : MonoBehaviour
         }
 
 
-        Instantiate(BulletHole,hitInfo.point+(hitInfo.normal*0.1f),Quaternion.FromToRotation(Vector3.up,hitInfo.normal));
+       // Instantiate(BulletHole,hitInfo.point+(hitInfo.normal*0.1f),Quaternion.FromToRotation(Vector3.up,hitInfo.normal));
 
         var rigidBody = hitInfo.transform.GetComponent<Rigidbody>();
         if (rigidBody == null)
@@ -130,6 +131,9 @@ public class Weapon : MonoBehaviour
             return;
         }
         rigidBody.velocity += playerCamera.forward * hitForce;
+
+        var health = hitInfo.transform.GetComponent<Health>();
+        health.UpdateHealth(damageValue);
     }
 
     private IEnumerator ShootingCoolDown()
@@ -213,12 +217,15 @@ public class Weapon : MonoBehaviour
             gfx.layer = 0;
         }
         _rigidBody = gameObject.AddComponent<Rigidbody>();
-        _rigidBody.mass = 0.1f;
+        _rigidBody.mass = 1f;
+        
         Vector3 forwardDirection = playerCamera.forward;
         forwardDirection.y = 0f;
 
+        //_rigidBody.AddForce(forwardDirection*ThrowForce,ForceMode.Impulse);
         _rigidBody.velocity = forwardDirection * ThrowForce;
         _rigidBody.velocity += Vector3.up * ThrowExtraForce;
+        _rigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         _rigidBody.angularVelocity = Random.onUnitSphere * RotationForce;
 
