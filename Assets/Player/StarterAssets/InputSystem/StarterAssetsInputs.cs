@@ -82,13 +82,14 @@ namespace StarterAssets
 		public void OnFire(InputValue value)
         {
 			ShotInput(value.isPressed);
-			Debug.Log("Pressed Value");
+			
 		}
 
 		public void OnReload(InputValue value)
         {
 			ReloadInput(value.isPressed);
-        }
+			Debug.Log("Pressed Value R");
+		}
 
 
 

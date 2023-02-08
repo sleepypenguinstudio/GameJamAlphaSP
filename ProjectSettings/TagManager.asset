@@ -23,6 +23,10 @@ TagManager:
   - Fluid
   - playerSpawnPossibility
   - exitSpawnPossibility
+  - weaponHolder
+  - swayHolder
+  - camera
+  - WeaponManager
   layers:
   - Default
   - TransparentFX

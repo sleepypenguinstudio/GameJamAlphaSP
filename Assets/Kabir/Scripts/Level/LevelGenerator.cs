@@ -5,6 +5,17 @@ public class LevelGenerator : MonoBehaviour
     public GameObject playerPrefab;
     private Vector3[] playerSpawnPoints;
 
+
+    public static LevelGenerator Instance { get; private set; }
+
+    public GameObject PlayerReference;
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -26,6 +37,6 @@ public class LevelGenerator : MonoBehaviour
         Vector3 playerSpawnPoint = playerSpawnPoints[randomSpawnPointIndex];
 
         // Instantiate the player at the chosen spawn point
-        GameObject player = Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
+        PlayerReference = Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
     }
 }

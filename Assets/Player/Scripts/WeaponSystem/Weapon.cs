@@ -17,7 +17,8 @@ public class Weapon : MonoBehaviour
     public int WeaponGraphicsLayer;
     public GameObject[] WeaponGraphics;
     public Collider[] GraphicsColliders;
-    [SerializeField] private StarterAssetsInputs starterAssetsInputs;
+    //[SerializeField] StarterAssetsInputs starterAssetInputs;
+    
     public float AnimTime;
 
 
@@ -57,15 +58,30 @@ public class Weapon : MonoBehaviour
     {
         _rigidBody = gameObject.AddComponent<Rigidbody>();
         _rigidBody.mass = 1f;
+
         
+
 
         ammo = maxAmmo;
     }
 
 
 
+    void AssignInputs()
+    {
+        
+    }
+
+
+
+
     private void Update()
     {
+        
+
+
+
+
         if (!weaponEquipped) { return; }
 
 
@@ -90,15 +106,16 @@ public class Weapon : MonoBehaviour
             ReloadAnimation();
         }
 
-        if (starterAssetsInputs.reload && !reloading && ammo<maxAmmo)
+        if (/*starterAssetInputs.reload*/ Input.GetKeyDown(KeyCode.R) && !reloading && ammo<maxAmmo)
         {
-            starterAssetsInputs.reload = false;
+
+            //starterAssetInputs.reload = false;
             StartCoroutine(ReloadingCoolDown());
         }
-        else
-        {
-            starterAssetsInputs.reload = false;
-        }
+        //else
+        //{
+        //    starterAssetInputs.reload = false;
+        //}
 
         if((tappable?Input.GetMouseButtonDown(0):Input.GetMouseButton(0))&& !shooting && !reloading && ammo>0)
         {
@@ -169,7 +186,7 @@ public class Weapon : MonoBehaviour
        // ammoText.text = ammo + "/" + maxAmmo;
 
         reloading = false;
-        starterAssetsInputs.reload = false;
+        //starterAssetInputs.reload = false;
 
     }
 

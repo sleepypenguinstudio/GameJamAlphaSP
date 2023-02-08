@@ -25,13 +25,19 @@ public class WeaponManager : MonoBehaviour
 
     List<RaycastHit> realList = new List<RaycastHit>();
 
-    [SerializeField]private StarterAssetsInputs starterAssetsInputs;
+    public StarterAssetsInputs starterAssetsInputs;
 
     private void Awake()
     {
-       // starterAssetsInputs = GetComponent<StarterAssetsInputs>();
-    }
+        
 
+        // starterAssetsInputs = GetComponent<StarterAssetsInputs>();
+    }
+    private void Start()
+    {
+        
+
+    }
     private void Update()
     {
         if (isWeaponEquipped)
