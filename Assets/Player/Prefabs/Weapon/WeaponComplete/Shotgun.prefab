@@ -48,8 +48,6 @@ MonoBehaviour:
   ThrowForce: 5
   ThrowExtraForce: 11
   RotationForce: 120
-  BulletHole: {fileID: 5573556146563149868, guid: 43b408cde43fac44295e0e8ed0cbf7d5,
-    type: 3}
   WeaponGraphicsLayer: 17
   WeaponGraphics:
   - {fileID: 3523211458509057553}
@@ -67,6 +65,8 @@ MonoBehaviour:
   recoilForce: 1
   recoilSmooth: 11.75
   damageValue: 0
+  bulletHolePrefab: {fileID: 6459660786663361747, guid: 9e460e099f3cace4f82eadf07c2c2946,
+    type: 3}
 --- !u!1001 &4334046097355412288
 PrefabInstance:
   m_ObjectHideFlags: 0

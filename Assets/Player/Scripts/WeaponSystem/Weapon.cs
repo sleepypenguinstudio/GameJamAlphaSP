@@ -104,7 +104,7 @@ public class Weapon : MonoBehaviour
         {
 
             ammo--;
-            ammoText.text = ammo + "/" + maxAmmo;
+           // ammoText.text = ammo + "/" + maxAmmo;
             Shoot();
             StartCoroutine(ammo<=0? ReloadingCoolDown():ShootingCoolDown());
             
@@ -161,12 +161,12 @@ public class Weapon : MonoBehaviour
     {
 
         reloading = true;
-        ammoText.text = "Reloading";
+        //ammoText.text = "Reloading";
         rotationTime = 0f;
 
         yield return new WaitForSeconds(reloadSpeed);
         ammo = maxAmmo;
-        ammoText.text = ammo + "/" + maxAmmo;
+       // ammoText.text = ammo + "/" + maxAmmo;
 
         reloading = false;
         starterAssetsInputs.reload = false;
@@ -208,7 +208,7 @@ public class Weapon : MonoBehaviour
         weaponEquipped = true;
         playerCamera = _playerCamera;
         ammoText = _ammoText;
-        ammoText.text = ammo + "/" + maxAmmo;
+       // ammoText.text = ammo + "/" + maxAmmo;
 
         
     }
@@ -241,7 +241,7 @@ public class Weapon : MonoBehaviour
 
 
 
-        ammoText.text = "";
+       // ammoText.text = "";
 
         transform.parent = null;
         weaponEquipped = false;
@@ -256,6 +256,7 @@ public class Weapon : MonoBehaviour
     private void BulletHoleSystem(RaycastHit hitInfo)
     {
         GameObject bulletMark = Instantiate(bulletHolePrefab,hitInfo.point,Quaternion.LookRotation(hitInfo.normal));
+        
         bulletMark.transform.parent = hitInfo.transform;
         bulletMark.transform.position += bulletMark.transform.forward / 1000f;
         Destroy(bulletMark,10f);
