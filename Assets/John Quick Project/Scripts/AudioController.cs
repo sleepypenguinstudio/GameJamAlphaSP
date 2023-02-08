@@ -24,7 +24,7 @@ public class AudioController : MonoBehaviour
     public AudioClip shootSmgSound;
     public AudioClip shootShotgunSound;
     public AudioClip kickSound;
-    public AudioClip menuBGSound;
+    //public AudioClip menuBGSound;
     public AudioClip menuSelectSound;
     public AudioClip playerDeathSound;
     public AudioClip playerFootstepSound;
