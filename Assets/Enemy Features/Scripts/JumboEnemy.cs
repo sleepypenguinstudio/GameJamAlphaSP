@@ -10,6 +10,8 @@ public class JumboEnemy : EnemyClass
     int currentWaypoint = 0; // Index of current waypoint
     public float speed = 5.0f; // Speed of movement
     Vector3 target;
+
+    Weapon weapon;
  
      public NavMeshAgent agent;
 
@@ -19,10 +21,11 @@ public class JumboEnemy : EnemyClass
 
         agent = GetComponent<NavMeshAgent>();
         EnemyAnimationController = GetComponent<EnemyAnimationController>();
+        weapon = GetComponent<Weapon>();
 
        EnemyAnimationController.PlayAnimation(AnimationValue);
         UpdateDestination();
-        //Call Shoot function
+       
     }
     
     protected override void Chase(Transform player)
@@ -32,6 +35,7 @@ public class JumboEnemy : EnemyClass
           Vector3 moveDirection = (agent.destination - transform.position).normalized;
         if(Vector3.Distance(this.transform.position, target) < 1f)
         {
+            weapon.Shoot();
            
             Debug.Log("in");
             IterateWaypointIndex();

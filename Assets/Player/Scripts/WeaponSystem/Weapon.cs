@@ -100,7 +100,7 @@ public class Weapon : MonoBehaviour
             starterAssetsInputs.reload = false;
         }
 
-        if((tappable?Input.GetMouseButtonDown(0):Input.GetMouseButton(0))&& !shooting && !reloading && ammo>0)
+        if((tappable?Input.GetMouseButtonDown(0):Input.GetMouseButton(0))&& !shooting && !reloading && ammo>0) 
         {
 
             ammo--;
@@ -115,7 +115,7 @@ public class Weapon : MonoBehaviour
 
 
     #region ShootMechanics
-    private void Shoot()
+    public void Shoot()
     {
         transform.localPosition -= new Vector3(0, 0, recoilForce);
 
