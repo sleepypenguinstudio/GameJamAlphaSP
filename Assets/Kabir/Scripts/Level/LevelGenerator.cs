@@ -1,37 +1,34 @@
+using System;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
     public int currentLevel = 0;
-    public int floorSize = 10;
-    public GameObject floorPrefab;
-    public GameObject wallPrefab;
-    public AudioClip[] levelSongs;
+    public GameObject[] levels;
 
 
 
 
     private void Start()
     {
-        GenerateLevel();
+        LoadLevel(currentLevel);
     }
 
-    private void GenerateLevel()
+    private void LoadLevel(int levelIndex)
     {
-        //FloorSpawn floorSpawn = new FloorSpawn(floorSize, floorPrefab);
-        //floorSpawn.Spawn();
+        if (levelIndex >= 0 && levelIndex < levels.Length)
+        {
+            // Deactivate current level
+            if (currentLevel >= 0 && currentLevel < levels.Length)
+            {
+                levels[currentLevel].SetActive(false);
+            }
 
-        //WallSpawn wallSpawn = new WallSpawn(floorSize, wallPrefab);
-        //wallSpawn.Spawn();
-
-        //PrefabSpawn prefabSpawn = new PrefabSpawn(prefab, prefabSize, floorSize, numberOfPrefabs);
-        //prefabSpawn.Spawn();
-
-        //EnemySpawn enemySpawn = new EnemySpawn(enemyPrefabs, enemyPositions, spawnInterval);
-        //enemySpawn.Spawn();
-
-        //MusicPlayer musicPlayer = new MusicPlayer();
-        //musicPlayer.PlaySongForLevel(currentLevel);
-        currentLevel++;
+            // Activate new level
+            currentLevel = levelIndex;
+            levels[currentLevel].SetActive(true);
+        }
     }
+
+
 }

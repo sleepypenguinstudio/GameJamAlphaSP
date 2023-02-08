@@ -3,13 +3,7 @@ using UnityEngine;
 public class PrefabSpawn : MonoBehaviour
 {
     public GameObject[] prefabs;
-    Vector3[] prefabPositions = new Vector3[] {
-    new Vector3(50, 0, 30),
-    new Vector3(-70, 0, 23),
-    new Vector3(-67, 0, -42),
-    new Vector3(20, 0, -52),
-    new Vector3(-73, 0, 41)
-    };
+    Vector3[] prefabPositions;
 
 
 
@@ -21,7 +15,13 @@ public class PrefabSpawn : MonoBehaviour
 
     public void Spawn()
     {
-        int prefabsCount = prefabPositions.Length;
+        GameObject[] prefabSpawnPossibilities = GameObject.FindGameObjectsWithTag("prefabSpawnPossibility");
+        prefabPositions = new Vector3[prefabSpawnPossibilities.Length];
+        for (int i = 0; i < prefabSpawnPossibilities.Length; i++)
+        {
+            prefabPositions[i] = prefabSpawnPossibilities[i].transform.position;
+        }
+        int prefabsCount = prefabSpawnPossibilities.Length;
         for (int i = 0; i < prefabsCount; i++)
         {
             int randomPrefabIndex = Random.Range(0, prefabs.Length);
