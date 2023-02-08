@@ -9,7 +9,7 @@ public class EnemyClass : MonoBehaviour
     {
         Idle,
         Chase,
-        Attack,
+        Death,
         Cover
     }
     public AIState currentState;
@@ -56,12 +56,14 @@ public class EnemyClass : MonoBehaviour
                 break;
             case AIState.Chase:
                 Chase(Player);
+                TurretShoot(Player);
                 break;
-            case AIState.Attack:
-                Attack(Player);
+            case AIState.Death:
+                Death(Player);
                 break;
             case AIState.Cover:
                 Cover(Player);
+                TurretShoot(Player);
                 break;
         }
     }
@@ -77,12 +79,17 @@ public class EnemyClass : MonoBehaviour
     }
 
 
-    protected virtual void Attack(Transform player)
+    protected virtual void Death(Transform player)
+    {
+        //Death code
+    }
+
+    protected virtual void Cover(Transform player)
     {
 
     }
 
-    protected virtual void Cover(Transform player)
+    protected virtual void TurretShoot(Transform player)
     {
 
     }
@@ -93,16 +100,7 @@ public class EnemyClass : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 50);
     }
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
 
 }
 

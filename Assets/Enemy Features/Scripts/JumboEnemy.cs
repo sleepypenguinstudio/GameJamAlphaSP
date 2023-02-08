@@ -13,7 +13,8 @@ public class JumboEnemy : EnemyClass
  
      public NavMeshAgent agent;
     private void Awake() {
-         agent = GetComponent<NavMeshAgent>();
+
+        agent = GetComponent<NavMeshAgent>();
         UpdateDestination();
         //Call Shoot function
     }
