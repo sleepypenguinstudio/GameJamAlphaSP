@@ -11,8 +11,6 @@ public class Weapon : MonoBehaviour
     public float RotationForce;
 
 
-    [Header("Bullet")]
-    public GameObject BulletHole;
 
 
     [Header("Misceleinous")]
@@ -35,6 +33,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float recoilForce;
     [SerializeField] float recoilSmooth;
     [SerializeField] float damageValue;
+    [SerializeField] GameObject bulletHolePrefab;
 
 
 
@@ -96,6 +95,10 @@ public class Weapon : MonoBehaviour
             starterAssetsInputs.reload = false;
             StartCoroutine(ReloadingCoolDown());
         }
+        else
+        {
+            starterAssetsInputs.reload = false;
+        }
 
         if((tappable?Input.GetMouseButtonDown(0):Input.GetMouseButton(0))&& !shooting && !reloading && ammo>0)
         {
@@ -123,17 +126,24 @@ public class Weapon : MonoBehaviour
         }
 
 
-       // Instantiate(BulletHole,hitInfo.point+(hitInfo.normal*0.1f),Quaternion.FromToRotation(Vector3.up,hitInfo.normal));
-
-        var rigidBody = hitInfo.transform.GetComponent<Rigidbody>();
-        if (rigidBody == null)
+        // Instantiate(BulletHole,hitInfo.point+(hitInfo.normal*0.1f),Quaternion.FromToRotation(Vector3.up,hitInfo.normal));
+        if (hitInfo.collider.tag != "Enemy")
         {
-            return;
+            BulletHoleSystem(hitInfo);
         }
-        rigidBody.velocity += playerCamera.forward * hitForce;
-
-        var health = hitInfo.transform.GetComponent<Health>();
-        health.UpdateHealth(damageValue);
+        
+        if (hitInfo.transform.GetComponent<Rigidbody>())
+        {
+            var rigidBody = hitInfo.transform.GetComponent<Rigidbody>();
+            rigidBody.velocity += playerCamera.forward * hitForce;
+        }
+       
+         
+        if (hitInfo.transform.GetComponent<Health>())
+        {
+            var health = hitInfo.transform.GetComponent<Health>();
+            health.UpdateHealth(damageValue);
+        }
     }
 
     private IEnumerator ShootingCoolDown()
@@ -243,11 +253,14 @@ public class Weapon : MonoBehaviour
 
 
 
-
-    private void BulletHoleSystem()
+    private void BulletHoleSystem(RaycastHit hitInfo)
     {
-        
+        GameObject bulletMark = Instantiate(bulletHolePrefab,hitInfo.point,Quaternion.LookRotation(hitInfo.normal));
+        bulletMark.transform.parent = hitInfo.transform;
+        bulletMark.transform.position += bulletMark.transform.forward / 1000f;
+        Destroy(bulletMark,10f);
     }
+
 
 
 }

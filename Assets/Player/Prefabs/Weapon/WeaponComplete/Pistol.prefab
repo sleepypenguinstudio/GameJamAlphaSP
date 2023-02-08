@@ -67,6 +67,8 @@ MonoBehaviour:
   recoilForce: 0.2
   recoilSmooth: 11.75
   damageValue: 0
+  bulletHolePrefab: {fileID: 6459660786663361747, guid: 7f1cc59429964e9488fe5958abab6e94,
+    type: 3}
 --- !u!1001 &3464717725133795547
 PrefabInstance:
   m_ObjectHideFlags: 0
