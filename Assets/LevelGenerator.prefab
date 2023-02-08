@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ff1ad89a351eb4f91e6b75e3f2bc12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  levels: []
+  playerPrefab: {fileID: 0}
 --- !u!114 &3832109651176636877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,4 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5da4996791eed48be031e843c9fa8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
+  prefabs:
+  - {fileID: 3860748772932421318, guid: d1aeb6e784fb9c54e8f5c0eaa6feec46, type: 3}
+  - {fileID: 808770293360514692, guid: df32ea6d363ad734aab422443db2581d, type: 3}
+  - {fileID: 1510128748811087622, guid: 3e00f8cdb03d73e40a88bcb18c0d481f, type: 3}
+  - {fileID: 6231127974572986528, guid: a2e5c8876fd3eda4693314cd92732455, type: 3}
+  - {fileID: 435710118984851061, guid: b09b74a69016b6a4096bcd3290bc0f84, type: 3}
+  - {fileID: 8566887088175388271, guid: 9f5c2462ef1632e4eb69911e11018f32, type: 3}
+  - {fileID: 2095062223575589840, guid: 7cabb70fa0ec77a43b9cabc1c2d1c45e, type: 3}
+  - {fileID: 7687494573961046996, guid: 8b4091a1dffb4844e9febe53713cb488, type: 3}

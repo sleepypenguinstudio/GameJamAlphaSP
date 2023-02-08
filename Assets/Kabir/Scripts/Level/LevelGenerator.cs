@@ -1,27 +1,30 @@
-using System.Collections;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public Transform[] playerSpawnPoints;
-    public Transform[] exitPoints;
+    public GameObject playerPrefab;
+    private Vector3[] playerSpawnPoints;
 
     private void Start()
     {
-        int randomPlayerSpawnIndex = Random.Range(0, playerSpawnPoints.Length);
-        int randomExitIndex = Random.Range(0, exitPoints.Length);
+        // Fill the playerSpawnPoints array with the positions of the player spawn points
+        GameObject[] playerSpawnPointObjects = GameObject.FindGameObjectsWithTag("playerSpawnPossibility");
+        playerSpawnPoints = new Vector3[playerSpawnPointObjects.Length];
+        for (int i = 0; i < playerSpawnPointObjects.Length; i++)
+        {
+            playerSpawnPoints[i] = playerSpawnPointObjects[i].transform.position;
+        }
 
-        Transform playerSpawnPoint = playerSpawnPoints[randomPlayerSpawnIndex];
-        Transform exitPoint = exitPoints[randomExitIndex];
+        SpawnPlayer();
+    }
 
-        // Place the player at the random player spawn point
-        // Replace "player" with your player object
-        GameObject player = GameObject.FindWithTag("Player");
-        player.transform.position = playerSpawnPoint.position;
+    private void SpawnPlayer()
+    {
+        // Pick a random player spawn point
+        int randomSpawnPointIndex = Random.Range(0, playerSpawnPoints.Length);
+        Vector3 playerSpawnPoint = playerSpawnPoints[randomSpawnPointIndex];
 
-        // Place the exit at the random exit point
-        // Replace "exit" with your exit object
-        GameObject exit = GameObject.FindWithTag("Exit");
-        exit.transform.position = exitPoint.position;
+        // Instantiate the player at the chosen spawn point
+        GameObject player = Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
     }
 }
