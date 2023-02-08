@@ -47,10 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  floorSize: 100
-  floorPrefab: {fileID: 4156867714664462135, guid: 65438d054a243453690cc5a55e7034a7, type: 3}
-  wallPrefab: {fileID: 7166259239455210438, guid: e125ee33af41143b8becc869e2706998, type: 3}
-  levelSongs: []
+  levels: []
 --- !u!114 &3832109651176636877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,8 +66,8 @@ MonoBehaviour:
   - {fileID: 126130302089793275, guid: 94025afe18059204e901d3bec7d70224, type: 3}
   - {fileID: 8979536952676561975, guid: 0d79204046abd4c49b61c1bd053f8c61, type: 3}
   - {fileID: 3125919938299543807, guid: 06b5c058b87339541a56cdd22b4e8670, type: 3}
-  spawnInterval: 3
-  maxSpawnCount: 3
+  spawnInterval: 2
+  maxSpawnCount: 1
 --- !u!114 &3832109651176636878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +80,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5da4996791eed48be031e843c9fa8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 8900838258180151802, guid: 5a31141e6696d45ab926369601cca605, type: 3}
-  - {fileID: 3939849767475321638, guid: 9b7976d86d126403b9493d55c4fea382, type: 3}
+  prefabs: []
