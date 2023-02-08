@@ -11,7 +11,8 @@ public class Weapon : MonoBehaviour
     public float RotationForce;
 
 
-
+    [Header("Bullet")]
+    public GameObject BulletHole;
 
 
     [Header("Misceleinous")]
@@ -119,7 +120,10 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
-        
+
+
+        Instantiate(BulletHole,hitInfo.point+(hitInfo.normal*0.1f),Quaternion.FromToRotation(Vector3.up,hitInfo.normal));
+
         var rigidBody = hitInfo.transform.GetComponent<Rigidbody>();
         if (rigidBody == null)
         {
@@ -229,6 +233,14 @@ public class Weapon : MonoBehaviour
     }
 
     #endregion
+
+
+
+
+    private void BulletHoleSystem()
+    {
+        
+    }
 
 
 }

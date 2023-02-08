@@ -48,6 +48,8 @@ MonoBehaviour:
   ThrowForce: 5
   ThrowExtraForce: 11
   RotationForce: 120
+  BulletHole: {fileID: 5573556146563149868, guid: 43b408cde43fac44295e0e8ed0cbf7d5,
+    type: 3}
   WeaponGraphicsLayer: 17
   WeaponGraphics:
   - {fileID: 3448742424051760292}
