@@ -12,17 +12,27 @@ public class JumboEnemy : EnemyClass
     Vector3 target;
  
      public NavMeshAgent agent;
+
+    [SerializeField] public EnemyAnimationController EnemyAnimationController;
+    public int AnimationValue = 3;
     private void Awake() {
 
         agent = GetComponent<NavMeshAgent>();
+        EnemyAnimationController = GetComponent<EnemyAnimationController>();
+
+       EnemyAnimationController.PlayAnimation(AnimationValue);
         UpdateDestination();
         //Call Shoot function
     }
     
     protected override void Chase(Transform player)
     {
+         
+         EnemyAnimationController.PlayAnimation(AnimationValue);
+          Vector3 moveDirection = (agent.destination - transform.position).normalized;
         if(Vector3.Distance(this.transform.position, target) < 1f)
         {
+           
             Debug.Log("in");
             IterateWaypointIndex();
             UpdateDestination();

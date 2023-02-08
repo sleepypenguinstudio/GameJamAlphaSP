@@ -27,7 +27,7 @@ public class EnemyClass : MonoBehaviour
     }
     private void Update()
     {
-        FacePlayer();
+       //FacePlayer();
 
         distanceToPlayer = Vector3.Distance(transform.position, Player.position);
 

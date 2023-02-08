@@ -32,8 +32,13 @@ public class EnemyThin : EnemyClass
     private int testCoverPosition = 10;
 
 
+     [SerializeField] public EnemyAnimationController EnemyAnimationController;
+    public int AnimationValue = 3;
     private void Awake()
     {
+          EnemyAnimationController = GetComponent<EnemyAnimationController>();
+
+       EnemyAnimationController.PlayAnimation(AnimationValue);
 
         agent = GetComponent<NavMeshAgent>();
         //Move();
