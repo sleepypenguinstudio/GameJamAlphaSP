@@ -1,34 +1,42 @@
-using System;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public int currentLevel = 0;
-    public GameObject[] levels;
+    public GameObject playerPrefab;
+    private Vector3[] playerSpawnPoints;
 
 
+    public static LevelGenerator Instance { get; private set; }
 
+    public GameObject PlayerReference;
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
-        LoadLevel(currentLevel);
-    }
-
-    private void LoadLevel(int levelIndex)
-    {
-        if (levelIndex >= 0 && levelIndex < levels.Length)
+        Cursor.lockState = CursorLockMode.Locked;
+        // Fill the playerSpawnPoints array with the positions of the player spawn points
+        GameObject[] playerSpawnPointObjects = GameObject.FindGameObjectsWithTag("playerSpawnPossibility");
+        playerSpawnPoints = new Vector3[playerSpawnPointObjects.Length];
+        for (int i = 0; i < playerSpawnPointObjects.Length; i++)
         {
-            // Deactivate current level
-            if (currentLevel >= 0 && currentLevel < levels.Length)
-            {
-                levels[currentLevel].SetActive(false);
-            }
-
-            // Activate new level
-            currentLevel = levelIndex;
-            levels[currentLevel].SetActive(true);
+            playerSpawnPoints[i] = playerSpawnPointObjects[i].transform.position;
         }
+
+        SpawnPlayer();
     }
 
+    private void SpawnPlayer()
+    {
+        // Pick a random player spawn point
+        int randomSpawnPointIndex = Random.Range(0, playerSpawnPoints.Length);
+        Vector3 playerSpawnPoint = playerSpawnPoints[randomSpawnPointIndex];
 
+        // Instantiate the player at the chosen spawn point
+        PlayerReference = Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
+    }
 }
