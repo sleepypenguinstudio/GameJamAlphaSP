@@ -18,28 +18,40 @@ public class EnemyClass : MonoBehaviour
 
     private float distanceToPlayer;
     public float health;
+     Vector3 direction ;
 
-    Weapon weapon;
+    [SerializeField] public EnemyAnimationController EnemyAnimationController;
+     private Health enemyHealth;
+
+    //public Weapon weapon;
+    [SerializeField] public EnemyShoot enemyShoot;
 
     private void Awake()
     {
 
+        enemyHealth = GetComponent<Health>();
 
+         EnemyAnimationController = GetComponent<EnemyAnimationController>();
+       //  enemyShoot = GetComponent<EnemyShoot>();
 
     }
     private void Update()
     {
-       //FacePlayer();
+         //FacePlayer();
 
         distanceToPlayer = Vector3.Distance(transform.position, Player.position);
 
         if (distanceToPlayer <= 20f)
         {
+            FacePlayer();
             currentState = AIState.Chase;
+            // enemyShoot.MyInput();
         }
         else if (distanceToPlayer > 20f && distanceToPlayer <= 30f)
         {
-           currentState = AIState.Cover;
+          // currentState = AIState.Cover;
+          FaceMovingDirection();
+           currentState = AIState.Idle;
 
         }
         // else if (distanceToPlayer >= 30f)
@@ -48,8 +60,15 @@ public class EnemyClass : MonoBehaviour
         // }
         else
         {
-           currentState = AIState.Idle;
+            FaceMovingDirection();
+           currentState = AIState.Cover;
         }
+
+        if(enemyHealth.currentHealth <= 0)
+        {
+            currentState = AIState.Death;
+        }
+         
 
         switch (currentState)
         {
@@ -73,7 +92,7 @@ public class EnemyClass : MonoBehaviour
 
     protected virtual void Idle()
     {
-        // Do nothing or random Move.
+        EnemyAnimationController.PlayAnimation(10);
     }
     protected virtual void Chase(Transform player)
     {
@@ -84,6 +103,9 @@ public class EnemyClass : MonoBehaviour
     protected virtual void Death(Transform player)
     {
         //Death code
+           EnemyAnimationController.PlayAnimation(14);
+             Destroy(this.gameObject);
+       
     }
 
     protected virtual void Cover(Transform player)
@@ -104,10 +126,16 @@ public class EnemyClass : MonoBehaviour
     }
 
 
-    public EnemyShootSystem()
+    public void FaceMovingDirection()
     {
-
+       
+       if (direction.magnitude > 0)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f);
+        }
     }
+
 
 
 }

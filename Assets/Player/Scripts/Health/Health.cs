@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
 
 
-    [SerializeField] float currentHealth;
+    [SerializeField]  public float currentHealth;
     [SerializeField] float Maxhealth;
 
 
@@ -31,10 +31,10 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth == 0)
-        {
-            Destroy(this.gameObject);
-        }
+        // if (currentHealth == 0)
+        // {
+        //     Destroy(this.gameObject);
+        // }
         
     }
 }

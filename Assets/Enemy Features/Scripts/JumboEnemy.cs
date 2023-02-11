@@ -11,17 +11,21 @@ public class JumboEnemy : EnemyClass
     public float speed = 5.0f; // Speed of movement
     Vector3 target;
 
-    Weapon weapon;
+    //Weapon weapon;
  
      public NavMeshAgent agent;
 
-    [SerializeField] public EnemyAnimationController EnemyAnimationController;
+ //   [SerializeField] public EnemyAnimationController EnemyAnimationController;
     public int AnimationValue = 3;
+
+    
     private void Awake() {
 
         agent = GetComponent<NavMeshAgent>();
         EnemyAnimationController = GetComponent<EnemyAnimationController>();
-        weapon = GetComponent<Weapon>();
+       // weapon = GetComponent<Weapon>();
+        enemyShoot = GetComponent<EnemyShoot>();
+
 
        EnemyAnimationController.PlayAnimation(AnimationValue);
         UpdateDestination();
@@ -35,9 +39,11 @@ public class JumboEnemy : EnemyClass
           Vector3 moveDirection = (agent.destination - transform.position).normalized;
         if(Vector3.Distance(this.transform.position, target) < 1f)
         {
-            weapon.Shoot();
+           // weapon.Shoot();
+          
            
             Debug.Log("in");
+            enemyShoot.MyInput();
             IterateWaypointIndex();
             UpdateDestination();
         }
@@ -47,8 +53,8 @@ public class JumboEnemy : EnemyClass
     void UpdateDestination()
     {
         target = PatrolPoints[currentWaypoint].position;
-        Debug.Log(target+transform.position); 
-         Debug.Log(target+transform.position); 
+        // Debug.Log(target+transform.position); 
+        //  Debug.Log(target+transform.position); 
 
         agent.SetDestination(target);
     }

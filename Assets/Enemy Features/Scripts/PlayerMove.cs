@@ -12,8 +12,8 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        rigidBody.MovePosition(transform.position + move * Time.deltaTime * playerSpeed);
+      //  Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+       // rigidBody.MovePosition(transform.position + move * Time.deltaTime * playerSpeed);
     }
     
 }

@@ -18,6 +18,7 @@ TagManager:
   - Wood
   - CinemachineTarget
   - Enemy
+  - Cover
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - Projectile
   - Weapon
   - Weapon Graphics
-  - 
+  - What is player
   - 
   - 
   - 
