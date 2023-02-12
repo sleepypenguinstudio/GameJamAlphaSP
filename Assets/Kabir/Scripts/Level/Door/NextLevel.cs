@@ -10,25 +10,26 @@ public class NextLevel : MonoBehaviour
     [SerializeField] private int sceneToLoad;
     //tarterAssetsInputs starterAssetsInputs;
 
-    
+
     private void OnTriggerStay(Collider other)
     {
         //starterAssetsInputs = other.GetComponent<StarterAssetsInputs>();
+        if (other.CompareTag("Player")) { 
 
-        if (other.tag == "PLayer")
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
+            
+            ChangeLevel();
 
-                ChangeLevel();
-
-            }
         }
+    }
+      
 
         
 
     }
     public void ChangeLevel() {
+        AudioController.instance.PlaySound(AudioController.instance.levelCompleteSound);
         if (LevelManager.levelNo < 4)
         {
             sceneToLoad = 0;

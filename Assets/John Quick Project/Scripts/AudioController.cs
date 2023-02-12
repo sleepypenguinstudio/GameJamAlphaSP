@@ -9,19 +9,35 @@ public class AudioController : MonoBehaviour
     public AudioSource source;
 
     #region AudioClipsVar
-    
-    public AudioClip playButtonSound;
-    public AudioClip ExitButtonSound;
+
     public AudioClip levelCompleteSound;
-    public AudioClip obstacleHitSound;
-    public AudioClip kickSound;
-    public AudioClip glassShatterSound;
-    public AudioClip shootSound;
-    public AudioClip reloadSound;
-    public AudioClip bulletHitSound;
+    public AudioClip doorBreakSound;
+    public AudioClip elevatorDingSound;
     public AudioClip enemyDeathSound;
+    public AudioClip enemyFootstepSound;
+    public AudioClip enemyInjurySound;
+    public AudioClip enemyLaughingSound;
+    public AudioClip gameOverSound;
+    public AudioClip gunInstantiate;
+    public AudioClip gunDropSound;
+    public AudioClip shootPistolSound;
+    public AudioClip shootSmgSound;
+    public AudioClip shootShotgunSound;
+    public AudioClip kickSound;
+    //public AudioClip menuBGSound;
+    public AudioClip menuSelectSound;
     public AudioClip playerDeathSound;
-    
+    public AudioClip playerFootstepSound;
+    public AudioClip playerHurtSound;
+    public AudioClip playerLowHealthSound;
+    public AudioClip reloadPistolSound;
+    public AudioClip reloadSmgSound;
+    public AudioClip realoadShotgunSound;
+    public AudioClip glassShatterSound;
+    public AudioClip electricSparkSound;
+    public AudioClip bulletHitSound;
+    public AudioClip sfxSliderSound;
+    public AudioClip[] levelSong; 
     
     #endregion
     
@@ -35,7 +51,6 @@ public class AudioController : MonoBehaviour
         {
             instance = this;
         }
-        
     }
 
     // Start is called before the first frame update
@@ -45,11 +60,21 @@ public class AudioController : MonoBehaviour
         {
             source = GetComponent<AudioSource>();
         }
+
+        //PlaySound(levelCompleteSound);
+        //PlayLevelSong(4);
     }
 
     void Update()
     {
-        
+        if (!source.isPlaying)
+        {
+            // End the level if the music ends
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Time.timeScale = 0;
+
+
+        }
     }
 
 
@@ -62,10 +87,18 @@ public class AudioController : MonoBehaviour
         source.volume = 1f;
     }
 
-    
+
+    public void PlayLevelSong(int levelNumber)
+    {
+        source.clip = levelSong[levelNumber];
+        source.Play();
+
+
+    }
+
     #endregion
-    
-    
-    
+
+
+
 
 }
