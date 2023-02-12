@@ -101,9 +101,11 @@ public class WeaponManager : MonoBehaviour
 
             });
             isWeaponEquipped = true;
-            equippedWeapon = realList[0].transform.GetComponent<Weapon>();
-            equippedWeapon.PickUp(WeaponHolder, PlayerCamera, AmmoText);
+           
+                equippedWeapon = realList[0].transform.GetComponent<Weapon>();
+                equippedWeapon.PickUp(WeaponHolder, PlayerCamera, AmmoText);
 
+            
 
         }
 

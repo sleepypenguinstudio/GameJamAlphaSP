@@ -4,6 +4,7 @@ public class EnemySpawn : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     Vector3[] enemyPositions;
+    
 
     //Vector3[] enemyPositions = new Vector3[enemyObjects.Length];
     //Vector3[] enemyPositions = new Vector3[] {
@@ -21,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnEnemies());
+        
 
     }
     public void Spawn()

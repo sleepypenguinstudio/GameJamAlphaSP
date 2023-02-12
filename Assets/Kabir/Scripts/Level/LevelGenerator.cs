@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     public static LevelGenerator Instance { get; private set; }
 
     public GameObject PlayerReference;
+    EnemySpawn enemySpawn;
 
 
     private void Awake()
@@ -19,6 +20,7 @@ public class LevelGenerator : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        enemySpawn = GetComponent<EnemySpawn>();
         // Fill the playerSpawnPoints array with the positions of the player spawn points
         GameObject[] playerSpawnPointObjects = GameObject.FindGameObjectsWithTag("playerSpawnPossibility");
         playerSpawnPoints = new Vector3[playerSpawnPointObjects.Length];
@@ -38,5 +40,9 @@ public class LevelGenerator : MonoBehaviour
 
         // Instantiate the player at the chosen spawn point
         PlayerReference = Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
+        enemySpawn.StartSpawning();
+
+
+
     }
 }

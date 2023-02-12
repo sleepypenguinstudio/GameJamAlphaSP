@@ -23,11 +23,14 @@ public class JumboEnemy : EnemyClass
 
         agent = GetComponent<NavMeshAgent>();
         EnemyAnimationController = GetComponent<EnemyAnimationController>();
+        enemyHealth = GetComponent<Health>();
        // weapon = GetComponent<Weapon>();
         enemyShoot = GetComponent<EnemyShoot>();
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
 
 
-       EnemyAnimationController.PlayAnimation(AnimationValue);
+
+        EnemyAnimationController.PlayAnimation(AnimationValue);
         UpdateDestination();
        
     }
@@ -37,7 +40,7 @@ public class JumboEnemy : EnemyClass
          
          EnemyAnimationController.PlayAnimation(AnimationValue);
           Vector3 moveDirection = (agent.destination - transform.position).normalized;
-        if(Vector3.Distance(this.transform.position, target) < 1f)
+        if(Vector3.Distance(this.transform.position, target) < 6f)
         {
            // weapon.Shoot();
           

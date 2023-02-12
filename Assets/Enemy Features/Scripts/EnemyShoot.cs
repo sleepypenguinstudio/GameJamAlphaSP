@@ -60,7 +60,7 @@ public class EnemyShoot : MonoBehaviour
         //Vector3 direction = pl.transform.forward + new Vector3(x, y, 0);
 
         //RayCast
-        if (Physics.Raycast(transform.position, transform.forward, out rayHit, range, whatIsPlayer))
+        if (Physics.Raycast(transform.position, transform.forward, out rayHit, range))
         {
             Debug.Log("Shoot in");
             Debug.Log(rayHit.collider.name);
@@ -71,6 +71,9 @@ public class EnemyShoot : MonoBehaviour
                 Debug.Log("Fire");
                 Debug.DrawLine(transform.position,transform.position + transform.forward *50, Color.green);
                 rayHit.collider.GetComponent<Health>().UpdateHealth(damage);
+
+                bulletsLeft--;
+                bulletsShot--;
             }
                 
         }
@@ -82,8 +85,6 @@ public class EnemyShoot : MonoBehaviour
         // Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
-        bulletsLeft--;
-        bulletsShot--;
 
         Invoke("ResetShot", timeBetweenShooting);
 

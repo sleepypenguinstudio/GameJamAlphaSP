@@ -21,7 +21,7 @@ public class EnemyClass : MonoBehaviour
      Vector3 direction ;
 
     [SerializeField] public EnemyAnimationController EnemyAnimationController;
-    [SerializeField] private Health enemyHealth;
+    [SerializeField] protected Health enemyHealth;
 
     //public Weapon weapon;
     [SerializeField] public EnemyShoot enemyShoot;
@@ -32,8 +32,9 @@ public class EnemyClass : MonoBehaviour
         enemyHealth = GetComponent<Health>();
 
          EnemyAnimationController = GetComponent<EnemyAnimationController>();
-       //  enemyShoot = GetComponent<EnemyShoot>();
+         enemyShoot = GetComponent<EnemyShoot>();
 
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
     {
