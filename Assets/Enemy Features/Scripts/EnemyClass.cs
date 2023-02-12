@@ -18,7 +18,7 @@ public class EnemyClass : MonoBehaviour
 
     private float distanceToPlayer;
     public float health;
-     Vector3 direction ;
+    Vector3 direction;
 
     [SerializeField] public EnemyAnimationController EnemyAnimationController;
     [SerializeField] protected Health enemyHealth;
@@ -31,16 +31,19 @@ public class EnemyClass : MonoBehaviour
 
         enemyHealth = GetComponent<Health>();
 
-         EnemyAnimationController = GetComponent<EnemyAnimationController>();
-         enemyShoot = GetComponent<EnemyShoot>();
+        EnemyAnimationController = GetComponent<EnemyAnimationController>();
+        enemyShoot = GetComponent<EnemyShoot>();
 
         Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update()
     {
-         //FacePlayer();
+        //FacePlayer();
+        {
+            distanceToPlayer = Vector3.Distance(transform.position, Player.position);
+        }
 
-        distanceToPlayer = Vector3.Distance(transform.position, Player.position);
+        
 
         if (distanceToPlayer <= 20f)
         {
@@ -50,9 +53,9 @@ public class EnemyClass : MonoBehaviour
         }
         else if (distanceToPlayer > 20f && distanceToPlayer <= 30f)
         {
-          // currentState = AIState.Cover;
-          FaceMovingDirection();
-           currentState = AIState.Idle;
+            // currentState = AIState.Cover;
+            FaceMovingDirection();
+            currentState = AIState.Idle;
 
         }
         // else if (distanceToPlayer >= 30f)
@@ -62,31 +65,35 @@ public class EnemyClass : MonoBehaviour
         else
         {
             FaceMovingDirection();
-           currentState = AIState.Cover;
+            currentState = AIState.Cover;
         }
 
-       if(enemyHealth.currentHealth <= 0)
-       {
-           currentState = AIState.Death;
-       }
-         
-
-        switch (currentState)
+        if (enemyHealth.currentHealth <= 0)
         {
-            case AIState.Idle:
-                Idle();
-                break;
-            case AIState.Chase:
-                Chase(Player);
-                TurretShoot(Player);
-                break;
-            case AIState.Death:
-                Death(Player);
-                break;
-            case AIState.Cover:
-                Cover(Player);
-                TurretShoot(Player);
-                break;
+            currentState = AIState.Death;
+        }
+
+        if (Player)
+        {
+
+
+            switch (currentState)
+            {
+                case AIState.Idle:
+                    Idle();
+                    break;
+                case AIState.Chase:
+                    Chase(Player); 
+                    TurretShoot(Player);
+                    break;
+                case AIState.Death:
+                    Death();
+                    break;
+                case AIState.Cover:
+                    Cover(Player);
+                    TurretShoot(Player);
+                    break;
+            }
         }
     }
 
@@ -101,12 +108,12 @@ public class EnemyClass : MonoBehaviour
     }
 
 
-    protected virtual void Death(Transform player)
+    protected virtual void Death()
     {
         //Death code
-           EnemyAnimationController.PlayAnimation(14);
-             Destroy(this.gameObject);
-       
+        EnemyAnimationController.PlayAnimation(14);
+        Destroy(this.gameObject);
+
     }
 
     protected virtual void Cover(Transform player)
@@ -129,8 +136,8 @@ public class EnemyClass : MonoBehaviour
 
     public void FaceMovingDirection()
     {
-       
-       if (direction.magnitude > 0)
+
+        if (direction.magnitude > 0)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f);
