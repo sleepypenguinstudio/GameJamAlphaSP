@@ -7,10 +7,14 @@ public class LevelManager : MonoBehaviour
 {
     public static int levelNo;
 
+    AudioSource levelAudioSource;
+
     private void Start()
     {
-        levelNo++;
+        levelAudioSource = GetComponent<AudioSource>();
+        
         Debug.Log("Level No    "+levelNo);
+        PlayLevelSong(levelNo);
     }
     private void Update()
     {
@@ -19,4 +23,15 @@ public class LevelManager : MonoBehaviour
         //    SceneManager.LoadScene(0);
         //}
     }
+
+   public void PlayLevelSong(int levelNumber)
+   {
+       //levelAudioSource.clip = AudioController.instance.levelSong[levelNumber];
+
+        Debug.LogError("Level No ---" + levelNo+ " song name : "+ AudioController.instance.levelSong[levelNumber].name);
+       levelAudioSource.Play();
+
+
+   }
+
 }

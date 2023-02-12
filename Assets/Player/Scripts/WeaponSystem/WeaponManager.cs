@@ -69,8 +69,12 @@ public class WeaponManager : MonoBehaviour
 
                     });
                     isWeaponEquipped = true;
-                    equippedWeapon = realList[0].transform.GetComponent<Weapon>();
-                    equippedWeapon.PickUp(WeaponHolder, PlayerCamera, AmmoText);
+                    if (realList.Count > 0)
+                    {
+                        equippedWeapon = realList[0].transform.GetComponent<Weapon>();
+
+                        equippedWeapon.PickUp(WeaponHolder, PlayerCamera, AmmoText);
+                    }
 
                 }
 
@@ -93,17 +97,22 @@ public class WeaponManager : MonoBehaviour
 
             CheckPickUP();
 
-            realList.Sort((hit1, hit2) =>
+            if (realList.Count > 0)
             {
-                var dist1 = GetDistance(hit1);
-                var dist2 = GetDistance(hit2);
-                return Mathf.Abs(dist1 - dist2) < 0.001f ? 0 : dist1 < dist2 ? -1 : 1;
 
-            });
-            isWeaponEquipped = true;
-           
+                realList.Sort((hit1, hit2) =>
+                {
+                    var dist1 = GetDistance(hit1);
+                    var dist2 = GetDistance(hit2);
+                    return Mathf.Abs(dist1 - dist2) < 0.001f ? 0 : dist1 < dist2 ? -1 : 1;
+
+                });
+                isWeaponEquipped = true;
+
                 equippedWeapon = realList[0].transform.GetComponent<Weapon>();
                 equippedWeapon.PickUp(WeaponHolder, PlayerCamera, AmmoText);
+
+            }
 
             
 
