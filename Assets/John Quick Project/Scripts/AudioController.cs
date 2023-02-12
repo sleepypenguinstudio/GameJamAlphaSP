@@ -24,7 +24,7 @@ public class AudioController : MonoBehaviour
     public AudioClip shootSmgSound;
     public AudioClip shootShotgunSound;
     public AudioClip kickSound;
-    //public AudioClip menuBGSound;
+    public AudioClip helicopterSound;
     public AudioClip menuSelectSound;
     public AudioClip playerDeathSound;
     public AudioClip playerFootstepSound;
@@ -62,8 +62,8 @@ public class AudioController : MonoBehaviour
             source = GetComponent<AudioSource>();
         }
 
-        PlaySound(playerLowHealthSound);
-        PlayLevelSong(2);
+        PlaySound(helicopterSound);
+        //PlayLevelSong(2);
     }
 
     void Update()

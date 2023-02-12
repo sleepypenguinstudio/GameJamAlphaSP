@@ -60,6 +60,7 @@ MonoBehaviour:
   shootSmgSound: {fileID: 8300000, guid: 9db804847b7245f418df68e63779dda4, type: 3}
   shootShotgunSound: {fileID: 8300000, guid: d9ce37fcb36bd794888546e33e0fda5c, type: 3}
   kickSound: {fileID: 8300000, guid: fc7fa9c740a37b446963cd23c5d5e9cb, type: 3}
+  helicopterSound: {fileID: 8300000, guid: 0911090e29b72754cb9e5df1f229d223, type: 3}
   menuSelectSound: {fileID: 8300000, guid: a00e3ccba7b6f794292611cfbd26fe14, type: 3}
   playerDeathSound: {fileID: 8300000, guid: ae2da89d8885ace4b835c282cfdc1f7b, type: 3}
   playerFootstepSound: {fileID: 8300000, guid: a8d07cdde13b9e646b6e04bbe548470f, type: 3}
