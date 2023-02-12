@@ -64,10 +64,10 @@ public class EnemyClass : MonoBehaviour
            currentState = AIState.Cover;
         }
 
-        if(enemyHealth.currentHealth <= 0)
-        {
-            currentState = AIState.Death;
-        }
+        // if(enemyHealth.currentHealth <= 0)
+        // {
+        //     currentState = AIState.Death;
+        // }
          
 
         switch (currentState)
