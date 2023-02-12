@@ -24,6 +24,6 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void PlayAnimation(int animationValue)
     {
-        enemyAnimator.SetInteger("EnemyA", animationValue);
+        enemyAnimator.SetInteger("Enemy", animationValue);
     }
 }

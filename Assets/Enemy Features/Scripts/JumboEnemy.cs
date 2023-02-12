@@ -16,7 +16,7 @@ public class JumboEnemy : EnemyClass
      public NavMeshAgent agent;
 
  //   [SerializeField] public EnemyAnimationController EnemyAnimationController;
-    public int AnimationValue = 3;
+    public int AnimationValue = 1;
 
     
     private void Awake() {
@@ -47,8 +47,14 @@ public class JumboEnemy : EnemyClass
            
             Debug.Log("in");
             enemyShoot.MyInput();
-            IterateWaypointIndex();
-            UpdateDestination();
+           
+        }
+
+        if(Vector3.Distance(this.transform.position, target) < 1f)
+        {
+
+         IterateWaypointIndex();
+        UpdateDestination();
         }
 
     }
