@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
 
-            RestartGame();
-        }
+        //    RestartGame();
+        //}
     }
     public void RestartGame()
     {
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over!");
+        Time.timeScale = 0;
         // Add any additional code for displaying a "game over" message or UI here.
     }
 }
