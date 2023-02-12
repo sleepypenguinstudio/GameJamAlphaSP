@@ -21,7 +21,7 @@ public class EnemyClass : MonoBehaviour
      Vector3 direction ;
 
     [SerializeField] public EnemyAnimationController EnemyAnimationController;
-     private Health enemyHealth;
+    [SerializeField] private Health enemyHealth;
 
     //public Weapon weapon;
     [SerializeField] public EnemyShoot enemyShoot;
@@ -64,10 +64,10 @@ public class EnemyClass : MonoBehaviour
            currentState = AIState.Cover;
         }
 
-        // if(enemyHealth.currentHealth <= 0)
-        // {
-        //     currentState = AIState.Death;
-        // }
+       if(enemyHealth.currentHealth <= 0)
+       {
+           currentState = AIState.Death;
+       }
          
 
         switch (currentState)

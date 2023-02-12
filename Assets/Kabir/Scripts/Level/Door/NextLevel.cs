@@ -14,12 +14,16 @@ public class NextLevel : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //starterAssetsInputs = other.GetComponent<StarterAssetsInputs>();
-        if(Input.GetKeyDown(KeyCode.E)){
-            
-            ChangeLevel();
 
+        if (other.tag == "PLayer")
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+
+                ChangeLevel();
+
+            }
         }
-      
 
         
 

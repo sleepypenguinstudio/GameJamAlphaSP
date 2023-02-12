@@ -148,6 +148,7 @@ public class Weapon : MonoBehaviour
         {
             BulletHoleSystem(hitInfo);
         }
+       
         
         if (hitInfo.transform.GetComponent<Rigidbody>())
         {
