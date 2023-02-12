@@ -62,7 +62,8 @@ public class AudioController : MonoBehaviour
             source = GetComponent<AudioSource>();
         }
 
-        
+        PlaySound(doorBreakSound);
+        PlayLevelSong(4);
     }
 
     void Update()
