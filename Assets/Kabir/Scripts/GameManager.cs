@@ -12,9 +12,14 @@ public class GameManager : MonoBehaviour
         //    RestartGame();
         //}
     }
+    public void NewGame()
+    {
+        // Load the first level of the game.
+        UnityEngine.SceneManagement.SceneManager.LoadScene("_level1");
+    }
     public void RestartGame()
     {
-        LevelManager.levelNo--;
+       LevelManager.levelNo--;
        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
