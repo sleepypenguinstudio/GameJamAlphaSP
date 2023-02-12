@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
 
    public void PlayLevelSong(int levelNumber)
    {
-       levelAudioSource.clip = AudioController.instance.levelSong[levelNumber];
+       //levelAudioSource.clip = AudioController.instance.levelSong[levelNumber];
 
         Debug.LogError("Level No ---" + levelNo+ " song name : "+ AudioController.instance.levelSong[levelNumber].name);
        levelAudioSource.Play();
