@@ -35,6 +35,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float recoilSmooth;
     [SerializeField] float damageValue;
     [SerializeField] GameObject bulletHolePrefab;
+    [SerializeField] ParticleGroupEmitter[] shootParticle;
 
 
 
@@ -135,6 +136,13 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         transform.localPosition -= new Vector3(0, 0, recoilForce);
+
+
+        foreach (var e in shootParticle)
+        {
+            e.Emit(1);
+        }
+
 
 
         if(!Physics.Raycast(playerCamera.position,playerCamera.forward,out var hitInfo, range))
