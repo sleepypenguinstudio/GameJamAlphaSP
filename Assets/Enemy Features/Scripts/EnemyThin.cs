@@ -30,6 +30,7 @@ public class EnemyThin : EnemyClass
     private bool playerInRange = false;
 
     private int testCoverPosition = 10;
+    float distance;
 
 
      [SerializeField] public EnemyAnimationController EnemyAnimationController;
@@ -54,7 +55,10 @@ public class EnemyThin : EnemyClass
         {
             if (Time.frameCount % FrameInterval == 0)
             {
-                float distance = ((player.position - transform.position).sqrMagnitude);
+                if(player != null)
+                {
+                    distance = ((player.position - transform.position).sqrMagnitude);
+                }
 
                 if (distance < RangeDistance * RangeDistance)
                 {

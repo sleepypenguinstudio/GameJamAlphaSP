@@ -39,7 +39,6 @@ public class EnemyClass : MonoBehaviour
     private void Update()
     {
          //FacePlayer();
-
         distanceToPlayer = Vector3.Distance(transform.position, Player.position);
 
         if (distanceToPlayer <= 20f)
@@ -70,9 +69,11 @@ public class EnemyClass : MonoBehaviour
            currentState = AIState.Death;
        }
          
+            if(Player)
+            {
+            switch (currentState)
+            {
 
-        switch (currentState)
-        {
             case AIState.Idle:
                 Idle();
                 break;
@@ -87,7 +88,9 @@ public class EnemyClass : MonoBehaviour
                 Cover(Player);
                 TurretShoot(Player);
                 break;
-        }
+                }
+            }
+
     }
 
 
