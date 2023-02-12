@@ -547,6 +547,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 177087924731887441, guid: 836d1bf3634eb2a47b3628f2492b576f,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 177087924731887441, guid: 836d1bf3634eb2a47b3628f2492b576f,
+        type: 3}
       propertyPath: SwayHolder
       value: 
       objectReference: {fileID: 3711529864583532124}

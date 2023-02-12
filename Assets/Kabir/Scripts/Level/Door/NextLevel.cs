@@ -20,8 +20,9 @@ public class NextLevel : MonoBehaviour
         {
             
             ChangeLevel();
+               LevelManager.levelNo++;
 
-        }
+            }
     }
       
 

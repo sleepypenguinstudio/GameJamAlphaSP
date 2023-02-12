@@ -137,6 +137,8 @@ public class Weapon : MonoBehaviour
     {
         transform.localPosition -= new Vector3(0, 0, recoilForce);
 
+        AudioController.instance.PlaySound(AudioController.instance.shootPistolSound);
+
 
         foreach (var e in shootParticle)
         {

@@ -67,14 +67,7 @@ public class AudioController : MonoBehaviour
 
     void Update()
     {
-        if (!source.isPlaying)
-        {
-            // End the level if the music ends
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Time.timeScale = 0;
-
-
-        }
+        
     }
 
 
@@ -88,13 +81,7 @@ public class AudioController : MonoBehaviour
     }
 
 
-    public void PlayLevelSong(int levelNumber)
-    {
-        source.clip = levelSong[levelNumber];
-        source.Play();
-
-
-    }
+    
 
     #endregion
 
