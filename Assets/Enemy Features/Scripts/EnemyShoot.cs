@@ -19,8 +19,8 @@ public class EnemyShoot : MonoBehaviour
     public Transform attackPoint;
     public RaycastHit rayHit;
     public LayerMask whatIsPlayer;
+    [SerializeField] ParticleGroupEmitter[] shootParticle;
 
-  
 
     private void Awake()
     {
@@ -50,6 +50,18 @@ public class EnemyShoot : MonoBehaviour
     }
     public void Shoot()
     {
+
+
+
+        foreach (var e in shootParticle)
+        {
+            e.Emit(1);
+        }
+
+
+
+
+
         readyToShoot = false;
 
         //Spread
