@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         // Load the first level of the game.
-        UnityEngine.SceneManagement.SceneManager.LoadScene("_level1");
+        SceneManager.LoadScene("_level1");
     }
     public void RestartGame()
     {
