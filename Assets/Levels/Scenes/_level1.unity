@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1543,6 +1543,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6315909080968717471, guid: e2e96cb47e49aa54692d8677a214441c,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1632055035}
     - target: {fileID: 6315909082112311449, guid: e2e96cb47e49aa54692d8677a214441c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1561,7 +1566,7 @@ PrefabInstance:
     - target: {fileID: 6315909082267748651, guid: e2e96cb47e49aa54692d8677a214441c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6315909082267748651, guid: e2e96cb47e49aa54692d8677a214441c,
         type: 3}
@@ -14118,6 +14123,12 @@ Transform:
   m_Father: {fileID: 717869373}
   m_RootOrder: 114
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1632055035 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4681126225622216126, guid: c83d55d1ff98c7542abe1bcb3ecbfea8,
+    type: 3}
+  m_PrefabInstance: {fileID: 410062970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1633491217
 PrefabInstance:
   m_ObjectHideFlags: 0
