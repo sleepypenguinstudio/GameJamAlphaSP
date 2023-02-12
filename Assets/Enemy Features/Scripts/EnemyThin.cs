@@ -33,11 +33,11 @@ public class EnemyThin : EnemyClass
     float distance;
 
 
-     [SerializeField] public EnemyAnimationController EnemyAnimationController;
+    // [SerializeField] public EnemyAnimationController EnemyAnimationController;
     public int AnimationValue = 3;
     private void Awake()
     {
-          EnemyAnimationController = GetComponent<EnemyAnimationController>();
+         // EnemyAnimationController = GetComponent<EnemyAnimationController>();
 
        EnemyAnimationController.PlayAnimation(AnimationValue);
 
