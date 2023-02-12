@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,17 +428,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1511298870}
-  playButtonSound: {fileID: 0}
-  ExitButtonSound: {fileID: 0}
-  levelCompleteSound: {fileID: 8300000, guid: aafb11984c415452fb545643c2ae711d, type: 3}
-  obstacleHitSound: {fileID: 0}
-  kickSound: {fileID: 0}
-  glassShatterSound: {fileID: 0}
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
-  bulletHitSound: {fileID: 0}
-  enemyDeathSound: {fileID: 0}
-  playerDeathSound: {fileID: 0}
+  levelCompleteSound: {fileID: 8300000, guid: 84d310b4b13015641ad7f762ff06a7a1, type: 3}
+  doorBreakSound: {fileID: 8300000, guid: 08de8de329f200a4da1e85b93a5a3d47, type: 3}
+  elevatorDingSound: {fileID: 8300000, guid: f94e99fbc9063794d9f6fe82fa8d062f, type: 3}
+  enemyDeathSound: {fileID: 8300000, guid: c649286516084b84ca5e0585a59d1905, type: 3}
+  enemyFootstepSound: {fileID: 8300000, guid: aaca38b664b9a60418e1c5111734a5e4, type: 3}
+  enemyInjurySound: {fileID: 8300000, guid: 7efd33ab3f87e864cbb209d1dc2284c0, type: 3}
+  enemyLaughingSound: {fileID: 8300000, guid: b837fb30f724d9746a90a6cc500b3d74, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 8962e241b58487a438a39ee465a2580f, type: 3}
+  gunInstantiate: {fileID: 8300000, guid: 40d756a03d702cd4ca8a0e54f5778e79, type: 3}
+  gunDropSound: {fileID: 8300000, guid: b1482da478a9d7741ab32af6f3a80a66, type: 3}
+  shootPistolSound: {fileID: 8300000, guid: 93f064b1be0cefc46a6de6586e6e5072, type: 3}
+  shootSmgSound: {fileID: 8300000, guid: 9db804847b7245f418df68e63779dda4, type: 3}
+  shootShotgunSound: {fileID: 8300000, guid: d9ce37fcb36bd794888546e33e0fda5c, type: 3}
+  kickSound: {fileID: 8300000, guid: fc7fa9c740a37b446963cd23c5d5e9cb, type: 3}
+  menuSelectSound: {fileID: 8300000, guid: a00e3ccba7b6f794292611cfbd26fe14, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: ae2da89d8885ace4b835c282cfdc1f7b, type: 3}
+  playerFootstepSound: {fileID: 8300000, guid: a8d07cdde13b9e646b6e04bbe548470f, type: 3}
+  playerHurtSound: {fileID: 8300000, guid: e025cff29c416ee45aa5a7f8af1eaa1e, type: 3}
+  playerLowHealthSound: {fileID: 8300000, guid: 442be671ba32bd940818a7f8aca1af27, type: 3}
+  reloadPistolSound: {fileID: 8300000, guid: 5ae959185a35a1741903790aeeae0390, type: 3}
+  reloadSmgSound: {fileID: 8300000, guid: eccb582755a5c2c4aaa061e63b64c262, type: 3}
+  realoadShotgunSound: {fileID: 8300000, guid: 8539c00430a436d48b599893fadeb954, type: 3}
+  glassShatterSound: {fileID: 8300000, guid: ff2cfbd93b1960c4982cd14e06ea8443, type: 3}
+  electricSparkSound: {fileID: 8300000, guid: 610c6f784e20e0048b6b52a8c0c29721, type: 3}
+  bulletHitSound: {fileID: 8300000, guid: 3c0d1f878051e8b408102417dd5cb681, type: 3}
+  sfxSliderSound: {fileID: 8300000, guid: 0ea0f4e5dad005c4aa2b760a89b6316c, type: 3}
+  levelSong:
+  - {fileID: 8300000, guid: 89c8732afacb0f549a6169c463a67718, type: 3}
+  - {fileID: 8300000, guid: 823a08fb0adbec444b6260dedbc51ead, type: 3}
+  - {fileID: 8300000, guid: c318172143c67884486e1b74570ec485, type: 3}
+  - {fileID: 8300000, guid: 2ae20844a2fdad54f91ef46841d73b0a, type: 3}
+  - {fileID: 8300000, guid: 10af3b3032d0e4f46b2cf3a2d214ff3b, type: 3}
+  - {fileID: 8300000, guid: e65ed0a4123b56544bed712c5638a23e, type: 3}
+  - {fileID: 8300000, guid: 39507a6065d38e24484e08cef5025eb6, type: 3}
+  - {fileID: 8300000, guid: ce5c24e6645eea54b83735e0786ebb57, type: 3}
+  - {fileID: 8300000, guid: 3b85c3aee9553cd40b20e7f524fe9c32, type: 3}
+  - {fileID: 8300000, guid: df478bf41e79c0144a9c29a0e2c06fa2, type: 3}
 --- !u!4 &1511298872
 Transform:
   m_ObjectHideFlags: 0

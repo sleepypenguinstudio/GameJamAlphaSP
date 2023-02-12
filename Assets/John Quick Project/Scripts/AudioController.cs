@@ -62,7 +62,8 @@ public class AudioController : MonoBehaviour
             source = GetComponent<AudioSource>();
         }
 
-        
+        PlaySound(playerLowHealthSound);
+        PlayLevelSong(2);
     }
 
     void Update()
