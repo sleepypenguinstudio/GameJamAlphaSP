@@ -51,7 +51,6 @@ public class AudioController : MonoBehaviour
         {
             instance = this;
         }
-        
     }
 
     // Start is called before the first frame update
@@ -63,12 +62,19 @@ public class AudioController : MonoBehaviour
         }
 
         PlaySound(doorBreakSound);
-        PlayLevelSong(4);
+        //PlayLevelSong(4);
     }
 
     void Update()
     {
-        
+        if (!source.isPlaying)
+        {
+            // End the level if the music ends
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Time.timeScale = 0;
+
+
+        }
     }
 
 
@@ -89,10 +95,10 @@ public class AudioController : MonoBehaviour
 
 
     }
-    
+
     #endregion
-    
-    
-    
+
+
+
 
 }

@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static int levelNo;
+    
 
     private void Start()
     {
         levelNo++;
         Debug.Log("Level No    "+levelNo);
+        AudioController.instance.PlayLevelSong(levelNo-1);
     }
     private void Update()
     {
