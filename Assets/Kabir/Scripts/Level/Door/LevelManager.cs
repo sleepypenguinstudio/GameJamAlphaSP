@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
     public static int levelNo;
 
     AudioSource levelAudioSource;
+    [SerializeField] TMP_Text levelText;
 
     private void Start()
     {
@@ -15,6 +17,7 @@ public class LevelManager : MonoBehaviour
         
         Debug.Log("Level No    "+levelNo);
         PlayLevelSong(levelNo);
+        LevelChangeText();
     }
     private void Update()
     {
@@ -32,6 +35,15 @@ public class LevelManager : MonoBehaviour
        levelAudioSource.Play();
 
 
+
    }
+
+
+   public void LevelChangeText()
+    {
+        if (levelText) {
+            levelText.text = "Level: " + levelNo;
+        }
+    }
 
 }
