@@ -42,7 +42,7 @@ public class EnemySpawn : MonoBehaviour
     {
         GameObject[] enemySpawnPossibilities = GameObject.FindGameObjectsWithTag("enemySpawnPossibility");
         enemyPositions = new Vector3[enemySpawnPossibilities.Length];
-        for (int i = 0; i < enemySpawnPossibilities.Length; i++)
+        for (int i = 0; i < 4; i++)
         {
             enemyPositions[i] = enemySpawnPossibilities[i].transform.position;
         }

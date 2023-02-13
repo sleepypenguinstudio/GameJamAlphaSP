@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class BulletArrangeInCircle : MonoBehaviour
 {
-    [SerializeField]  int numberOfBullets  ;
+    public int NumberOfBullets  ;
     public float radius = 5f;
     public Vector2 center = new Vector2(0, 0);
     public GameObject bullet;
@@ -28,7 +28,7 @@ public class BulletArrangeInCircle : MonoBehaviour
        
         if (Input.GetMouseButtonDown(0))
         {
-            if (objects.Length > 0)
+            if ( objects.Length > 0)
             {
                 Destroy(objects[objects.Length - 1]);
                 GameObject[] newArray = new GameObject[objects.Length - 1];
@@ -39,7 +39,7 @@ public class BulletArrangeInCircle : MonoBehaviour
                 objects = newArray;
             }
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             DestroyCircle();
             CreateCircle();
@@ -51,18 +51,18 @@ public class BulletArrangeInCircle : MonoBehaviour
             ChangePanel();
             if (currentPanelIndex == 0)
             {
-                numberOfBullets = 20;
+                NumberOfBullets = 20;
               
             }
             else if (currentPanelIndex == 1)
             {
-                numberOfBullets = 6;
+                NumberOfBullets = 6;
                
             }
 
             else if (currentPanelIndex == 2)
             {
-                numberOfBullets = 30;
+                NumberOfBullets = 30;
                
             }
             DestroyCircle();
@@ -71,7 +71,7 @@ public class BulletArrangeInCircle : MonoBehaviour
     }
 
 
-    private void DestroyCircle()
+    public void DestroyCircle()
     {
         if (objects != null  )
         {
@@ -81,14 +81,14 @@ public class BulletArrangeInCircle : MonoBehaviour
             }
         }
     }
-    private void CreateCircle()
+    public void CreateCircle()
     {
 
       
         
-        float angleStep = 360f / numberOfBullets;
-        objects = new GameObject[numberOfBullets];
-        for (int i = 0; i < numberOfBullets; i++)
+        float angleStep = 360f / NumberOfBullets;
+        objects = new GameObject[NumberOfBullets];
+        for (int i = 0; i < NumberOfBullets; i++)
         {
             float angle = i * angleStep;
             Vector2 newPos = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * radius;

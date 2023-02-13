@@ -19,14 +19,16 @@ public class JumboEnemy : EnemyClass
     public int AnimationValue = 1;
 
     
-    private void Awake() {
+    override public void Awake() {
 
+
+        base.Awake();
         agent = GetComponent<NavMeshAgent>();
-        EnemyAnimationController = GetComponent<EnemyAnimationController>();
-        enemyHealth = GetComponent<Health>();
+       // EnemyAnimationController = GetComponent<EnemyAnimationController>();
+      //  enemyHealth = GetComponent<Health>();
        // weapon = GetComponent<Weapon>();
         enemyShoot = GetComponent<EnemyShoot>();
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+      //  Player = GameObject.FindGameObjectWithTag("Player").transform;
 
 
 
@@ -45,7 +47,7 @@ public class JumboEnemy : EnemyClass
            // weapon.Shoot();
           
            
-            Debug.Log("in");
+         
             enemyShoot.MyInput();
            
         }

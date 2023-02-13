@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
 using TMPro;
+
+
+
+
+public enum WeaponType{
+
+    Pistol,
+    Smg,
+    Shotgun
+
+};
+
 public class Weapon : MonoBehaviour
 {
     [Header("Force related to Weapon Drop")]
@@ -37,6 +49,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject bulletHolePrefab;
     [SerializeField] ParticleGroupEmitter[] shootParticle;
 
+    public WeaponType weaponType;
+
 
 
 
@@ -47,6 +61,7 @@ public class Weapon : MonoBehaviour
     private int ammo;
     private Transform playerCamera;
     private TMP_Text ammoText;
+    private BulletArrangeInCircle bulletArrangeInCircle;
 
     private Vector3 startPosition;
     private Quaternion startRotation;
@@ -64,6 +79,7 @@ public class Weapon : MonoBehaviour
 
 
         ammo = maxAmmo;
+      //  bulletArrangeInCircle = GameObject.FindGameObjectWithTag("bulletUI").GetComponent<BulletArrangeInCircle>();
     }
 
 
@@ -78,14 +94,16 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        
+
+       
 
 
 
 
-        if (!weaponEquipped) { return; }
+        if (!weaponEquipped) {  return; }
 
 
+      
 
         if (time < AnimTime)
         {
@@ -110,6 +128,7 @@ public class Weapon : MonoBehaviour
         if (/*starterAssetInputs.reload*/ Input.GetKeyDown(KeyCode.R) && !reloading && ammo<maxAmmo)
         {
 
+            
             //starterAssetInputs.reload = false;
             StartCoroutine(ReloadingCoolDown());
         }
@@ -189,6 +208,7 @@ public class Weapon : MonoBehaviour
     {
 
         reloading = true;
+
         //ammoText.text = "Reloading";
         rotationTime = 0f;
 

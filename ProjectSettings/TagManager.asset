@@ -19,6 +19,15 @@ TagManager:
   - CinemachineTarget
   - Enemy
   - Cover
+  - playerSpawnPossibility
+  - enemySpawnPossibility
+  - exitSpawnPossibility
+  - prefabSpawnPossibility
+  - Canvas
+  - WeaponManager
+  - swayHolder
+  - weaponHolder
+  - bulletUI
   layers:
   - Default
   - TransparentFX

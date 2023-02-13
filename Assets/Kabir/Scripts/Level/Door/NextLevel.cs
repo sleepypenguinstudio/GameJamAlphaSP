@@ -31,19 +31,25 @@ public class NextLevel : MonoBehaviour
     }
     public void ChangeLevel() {
         AudioController.instance.PlaySound(AudioController.instance.levelCompleteSound);
+        PlayerPrefs.SetInt("levelNo", LevelManager.levelNo);
         if (LevelManager.levelNo < 4)
-        {
-            sceneToLoad = 0;
-            SceneManager.LoadScene(sceneToLoad);
-        }
-        else if (LevelManager.levelNo == 4)
         {
             sceneToLoad = 1;
             SceneManager.LoadScene(sceneToLoad);
         }
-        else
+        else if (LevelManager.levelNo == 4)
         {
             sceneToLoad = 2;
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else if(LevelManager.levelNo  > 5 && LevelManager.levelNo<9)
+        {
+            sceneToLoad = 3;
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            sceneToLoad = 5;
             SceneManager.LoadScene(sceneToLoad);
         }
     }

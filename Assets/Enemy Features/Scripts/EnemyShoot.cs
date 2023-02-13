@@ -4,7 +4,7 @@ using TMPro;
 public class EnemyShoot : MonoBehaviour
 {
     //Gun stats
-    public int damage;
+    public float damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     //public bool allowButtonHold;
@@ -74,15 +74,15 @@ public class EnemyShoot : MonoBehaviour
         //RayCast
         if (Physics.Raycast(transform.position, transform.forward, out rayHit, range))
         {
-            Debug.Log("Shoot in");
-            Debug.Log(rayHit.collider.name);
+           
 
             if (rayHit.collider.CompareTag("Player"))
             {
                 //Damage function
-                Debug.Log("Fire");
+                
                 Debug.DrawLine(transform.position,transform.position + transform.forward *50, Color.green);
                 rayHit.collider.GetComponent<Health>().UpdateHealth(damage);
+                AudioController.instance.PlaySound(AudioController.instance.playerHurtSound);
 
                 bulletsLeft--;
                 bulletsShot--;

@@ -26,7 +26,7 @@ public class EnemyClass : MonoBehaviour
     //public Weapon weapon;
     [SerializeField] public EnemyShoot enemyShoot;
 
-    private void Awake()
+    virtual public void Awake()
     {
 
         enemyHealth = GetComponent<Health>();
@@ -34,8 +34,23 @@ public class EnemyClass : MonoBehaviour
         EnemyAnimationController = GetComponent<EnemyAnimationController>();
         enemyShoot = GetComponent<EnemyShoot>();
 
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+      
     }
+
+
+
+    private IEnumerator Start()
+    {
+
+
+        yield return new WaitForSeconds(1f);
+        if (GameObject.FindGameObjectWithTag("Player").transform)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+    }
+
     private void Update()
     {
         //FacePlayer();

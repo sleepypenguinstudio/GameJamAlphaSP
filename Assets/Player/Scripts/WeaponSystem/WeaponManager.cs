@@ -22,6 +22,7 @@ public class WeaponManager : MonoBehaviour
     private bool isWeaponEquipped;
     private Weapon equippedWeapon;
     private bool canInterect;
+    private BulletArrangeInCircle bulletArrangeInCircle;
 
     List<RaycastHit> realList = new List<RaycastHit>();
 
@@ -29,7 +30,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        bulletArrangeInCircle = GameObject.FindGameObjectWithTag("bulletUI").GetComponent<BulletArrangeInCircle>();
 
         // starterAssetsInputs = GetComponent<StarterAssetsInputs>();
     }
@@ -42,6 +43,11 @@ public class WeaponManager : MonoBehaviour
     {
         if (isWeaponEquipped)
         {
+
+
+
+
+
             SwaySystem();          
 
             if (starterAssetsInputs.drop)
@@ -108,9 +114,11 @@ public class WeaponManager : MonoBehaviour
 
                 });
                 isWeaponEquipped = true;
+                
 
                 equippedWeapon = realList[0].transform.GetComponent<Weapon>();
                 equippedWeapon.PickUp(WeaponHolder, PlayerCamera, AmmoText);
+                
 
             }
 
