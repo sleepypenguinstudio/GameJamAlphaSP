@@ -20,6 +20,10 @@ public class MainMenuManager : MonoBehaviour
             StartGame();
         
         }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            PlayerPrefs.DeleteAll();
+        }
         
     }
 

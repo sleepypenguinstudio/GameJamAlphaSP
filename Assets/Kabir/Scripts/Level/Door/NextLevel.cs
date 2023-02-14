@@ -42,7 +42,7 @@ public class NextLevel : MonoBehaviour
             sceneToLoad = 2;
             SceneManager.LoadScene(sceneToLoad);
         }
-        else if(LevelManager.levelNo  > 5 && LevelManager.levelNo<9)
+        else if(LevelManager.levelNo  > 5 && LevelManager.levelNo  <9)
         {
             sceneToLoad = 3;
             SceneManager.LoadScene(sceneToLoad);

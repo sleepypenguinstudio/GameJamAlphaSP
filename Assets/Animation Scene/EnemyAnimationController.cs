@@ -10,20 +10,20 @@ public class EnemyAnimationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyAnimator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
-     {
-    //    if(Input.GetKeyDown(KeyCode.Space))
-    //     {
-    //         PlayAnimation(animValue);
-    //     }
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayAnimation(animValue);
+        }
     }
 
     public void PlayAnimation(int animationValue)
     {
-        enemyAnimator.SetInteger("Enemy", animationValue);
+        enemyAnimator.SetInteger("EnemyA", animationValue);
     }
 }
